@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevTrack — Kaustubh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & ROOT ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0a0a0f;
+      --bg2:     #111118;
+      --bg3:     #16161f;
+      --bg4:     #1c1c28;
+      --glass:   rgba(255,255,255,0.055);
+      --glass2:  rgba(255,255,255,0.035);
+      --border:  rgba(255,255,255,0.09);
+      --border2: rgba(255,255,255,0.05);
+      --text:    #f5f4f0;
+      --text2:   #9a9890;
+      --text3:   #55544e;
+      --accent:  #c084fc;
+      --accent2: #818cf8;
+      --green:   #4ade80;
+      --orange:  #fb923c;
+      --pink:    #f472b6;
+      --blue:    #60a5fa;
+      --red:     #f87171;
+      --font:    'DM Sans', system-ui, sans-serif;
+      --serif:   'DM Serif Display', Georgia, serif;
+      --radius:  14px;
+      --radius-sm: 8px;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--bg);
+      font-family: var(--font);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ─── AMBIENT GLOW ─────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(192,132,252,0.07) 0%, transparent 70%);
+      top: -200px; right: -200px;
+      pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(96,165,250,0.05) 0%, transparent 70%);
+      bottom: -100px; left: -100px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ─── NAV ──────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,15,0.82);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border2);
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-mark {
+      width: 28px; height: 28px; border-radius: 7px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 600; color: #fff;
+    }
+    .nav-name { font-size: 0.88rem; font-weight: 500; letter-spacing: -0.01em; }
+    .nav-tabs {
+      display: flex; gap: 2px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border2);
+      border-radius: 10px; padding: 3px;
+    }
+    .nav-tab {
+      background: none; border: none;
+      color: var(--text2); font-family: var(--font);
+      font-size: 0.75rem; font-weight: 500;
+      padding: 6px 16px; border-radius: 7px;
+      cursor: pointer; transition: all 0.18s; letter-spacing: -0.01em;
+    }
+    .nav-tab:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+    .nav-tab.active {
+      background: rgba(255,255,255,0.09);
+      color: var(--text);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+    .streak-chip {
+      display: flex; align-items: center; gap: 5px;
+      background: rgba(251,146,60,0.1);
+      border: 1px solid rgba(251,146,60,0.22);
+      border-radius: 20px; padding: 5px 13px;
+      font-size: 0.72rem; font-weight: 500; color: var(--orange);
+    }
+
+    /* ─── LAYOUT ───────────────────────────────────────────── */
+    .wrap {
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto;
+      padding: 2.5rem 2rem;
+    }
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* ─── HERO ─────────────────────────────────────────────── */
+    .hero { margin-bottom: 2.5rem; }
+    .hero-greeting {
+      font-family: var(--serif);
+      font-size: 2.6rem; font-weight: 400;
+      line-height: 1.15; margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-greeting em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 0.88rem; color: var(--text2);
+      font-weight: 400; letter-spacing: -0.01em; line-height: 1.6;
+    }
+    .hero-quote {
+      margin-top: 1rem; padding: 0.85rem 1.1rem;
+      background: var(--glass);
+      border: 1px solid var(--border2);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.82rem; color: var(--text2);
+      font-style: italic; line-height: 1.6;
+    }
+
+    /* ─── STATS ────────────────────────────────────────────── */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 12px; margin-bottom: 2rem;
+    }
+    .stat {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.1rem;
+      transition: border-color 0.2s;
+    }
+    .stat:hover { border-color: rgba(255,255,255,0.14); }
+    .stat-val {
+      font-family: var(--serif);
+      font-size: 2.1rem; font-weight: 400;
+      line-height: 1; margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 0.68rem; font-weight: 500;
+      color: var(--text3); letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .cv { color: var(--accent); }
+    .cg { color: var(--green); }
+    .co { color: var(--orange); }
+    .cb { color: var(--blue); }
+
+    /* ─── GLASS CARD ───────────────────────────────────────── */
+    .card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .card-header {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+    .card-title {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--text2); letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ─── SECTION HEADING ──────────────────────────────────── */
+    .sec-eyebrow {
+      font-size: 0.68rem; font-weight: 500;
+      color: var(--text3); letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .sec-heading {
+      font-family: var(--serif);
+      font-size: 1.9rem; font-weight: 400;
+      margin-bottom: 1.75rem; letter-spacing: -0.02em;
+    }
+    .sec-heading span {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── BUTTONS ──────────────────────────────────────────── */
+    .btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text2); font-family: var(--font);
+      font-size: 0.73rem; font-weight: 500;
+      padding: 7px 14px; border-radius: var(--radius-sm);
+      cursor: pointer; transition: all 0.18s; letter-spacing: -0.01em;
+    }
+    .btn:hover {
+      background: rgba(255,255,255,0.1);
+      color: var(--text); border-color: rgba(255,255,255,0.13);
+    }
+    .btn-p {
+      background: linear-gradient(135deg, rgba(192,132,252,0.18), rgba(129,140,248,0.14));
+      border: 1px solid rgba(192,132,252,0.28);
+      color: var(--accent); font-family: var(--font);
+      font-size: 0.73rem; font-weight: 500;
+      padding: 8px 16px; border-radius: var(--radius-sm);
+      cursor: pointer; transition: all 0.18s; letter-spacing: -0.01em;
+    }
+    .btn-p:hover {
+      background: linear-gradient(135deg, rgba(192,132,252,0.28), rgba(129,140,248,0.22));
+      transform: translateY(-1px);
+    }
+    .btn-danger {
+      background: rgba(248,113,113,0.08);
+      border: 1px solid rgba(248,113,113,0.18);
+      color: var(--red); font-family: var(--font);
+      font-size: 0.68rem; font-weight: 500;
+      padding: 5px 10px; border-radius: 6px;
+      cursor: pointer; transition: all 0.18s;
+    }
+    .btn-danger:hover { background: rgba(248,113,113,0.16); }
+    .filter-btn {
+      background: none;
+      border: 1px solid var(--border2);
+      color: var(--text3); font-family: var(--font);
+      font-size: 0.7rem; font-weight: 500;
+      padding: 5px 12px; border-radius: 6px;
+      cursor: pointer; transition: all 0.18s; letter-spacing: -0.01em;
+    }
+    .filter-btn:hover { border-color: var(--border); color: var(--text2); }
+    .filter-btn.active {
+      background: rgba(192,132,252,0.1);
+      border-color: rgba(192,132,252,0.3);
+      color: var(--accent);
+    }
+
+    /* ─── DSA CONTROLS ─────────────────────────────────────── */
+    .controls {
+      display: flex; gap: 7px;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap; align-items: center;
+    }
+
+    /* ─── DSA TABLE ────────────────────────────────────────── */
+    .dsa-table { width: 100%; border-collapse: collapse; }
+    .dsa-table th {
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--text3); padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border2);
+    }
+    .dsa-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      font-size: 0.78rem; vertical-align: middle;
+    }
+    .dsa-table tbody tr { transition: background 0.12s; }
+    .dsa-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
+
+    .diff-badge {
+      font-size: 0.6rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 20px;
+      letter-spacing: 0.03em;
+    }
+    .easy   { background: rgba(74,222,128,0.1); color: #4ade80; border: 1px solid rgba(74,222,128,0.2); }
+    .medium { background: rgba(251,191,36,0.1);  color: #fbbf24; border: 1px solid rgba(251,191,36,0.2); }
+    .hard   { background: rgba(248,113,113,0.1); color: #f87171; border: 1px solid rgba(248,113,113,0.2); }
+
+    .plat-link {
+      display: inline-flex; align-items: center; gap: 3px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border2);
+      border-radius: 5px; padding: 3px 8px;
+      font-size: 0.62rem; font-weight: 500;
+      text-decoration: none; transition: all 0.15s;
+    }
+    .plc  { color: #ffa116; border-color: rgba(255,161,22,0.2); }
+    .plc:hover  { border-color: #ffa116; background: rgba(255,161,22,0.08); }
+    .pgfg { color: #2fc665; border-color: rgba(47,198,101,0.2); }
+    .pgfg:hover { border-color: #2fc665; background: rgba(47,198,101,0.08); }
+    .pcn  { color: #fb923c; border-color: rgba(251,146,60,0.2); }
+    .pcn:hover  { border-color: #fb923c; background: rgba(251,146,60,0.08); }
+
+    .chk {
+      width: 18px; height: 18px; border-radius: 4px;
+      border: 1.5px solid var(--border);
+      background: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.18s; font-size: 0.65rem; flex-shrink: 0;
+    }
+    .chk.on {
+      background: rgba(74,222,128,0.12);
+      border-color: var(--green); color: var(--green);
+    }
+    .date-cell { font-size: 0.65rem; color: var(--text3); }
+    .row-del {
+      background: none; border: none; color: var(--text3);
+      cursor: pointer; font-size: 0.72rem;
+      padding: 3px 7px; border-radius: 4px;
+      transition: color 0.15s; opacity: 0;
+    }
+    .dsa-table tbody tr:hover .row-del { opacity: 1; }
+    .row-del:hover { color: var(--red); }
+
+    /* ─── HEATMAP ──────────────────────────────────────────── */
+    .hm-section { margin-top: 2rem; }
+    .hm-label {
+      font-size: 0.65rem; font-weight: 500;
+      color: var(--text3); letter-spacing: 0.06em;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .heatmap {
+      display: grid;
+      grid-template-columns: repeat(52, 1fr);
+      gap: 3px;
+    }
+    .hm-cell {
+      height: 11px; border-radius: 2px;
+      cursor: pointer; transition: transform 0.1s;
+    }
+    .hm-cell:hover { transform: scale(1.5); }
+    .hm-0 { background: rgba(255,255,255,0.04); }
+    .hm-1 { background: rgba(192,132,252,0.22); }
+    .hm-2 { background: rgba(192,132,252,0.45); }
+    .hm-3 { background: rgba(192,132,252,0.7); }
+    .hm-4 { background: #c084fc; }
+    .hm-legend {
+      display: flex; gap: 5px; align-items: center;
+      margin-top: 8px;
+    }
+    .hm-swatch {
+      width: 10px; height: 10px; border-radius: 2px;
+    }
+    .hm-legend-label { font-size: 0.6rem; color: var(--text3); }
+
+    /* ─── MODAL ────────────────────────────────────────────── */
+    .overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 999;
+      align-items: center; justify-content: center;
+    }
+    .overlay.open { display: flex; }
+    .modal {
+      background: #13131a;
+      border: 1px solid var(--border);
+      border-radius: 18px; padding: 1.75rem;
+      width: 100%; max-width: 450px;
+      position: relative;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      max-height: 90vh; overflow-y: auto;
+    }
+    .modal-title {
+      font-family: var(--serif);
+      font-size: 1.2rem; font-weight: 400;
+      margin-bottom: 1.25rem; letter-spacing: -0.02em;
+    }
+    .fg { margin-bottom: 0.9rem; }
+    .fl {
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.06em; color: var(--text2);
+      text-transform: uppercase; display: block; margin-bottom: 5px;
+    }
+    .fi {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-sm);
+      color: var(--text); font-family: var(--font);
+      font-size: 0.8rem; padding: 9px 12px;
+      outline: none; transition: border-color 0.18s;
+    }
+    .fi:focus { border-color: rgba(192,132,252,0.4); }
+    .fi option { background: #13131a; color: var(--text); }
+    textarea.fi { resize: vertical; }
+    .modal-actions {
+      display: flex; gap: 8px;
+      justify-content: flex-end;
+      margin-top: 1.25rem;
+    }
+    .xbtn {
+      position: absolute; top: 1.1rem; right: 1.1rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border2);
+      color: var(--text3); width: 26px; height: 26px;
+      border-radius: 50%; cursor: pointer;
+      font-size: 0.75rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.18s;
+    }
+    .xbtn:hover { color: var(--text); background: rgba(255,255,255,0.1); }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    /* ─── GOALS ────────────────────────────────────────────── */
+    .goals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    .goal-card {
+      background: var(--glass2);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .goal-card:hover { border-color: var(--border); transform: translateY(-1px); }
+    .goal-top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 8px; margin-bottom: 10px;
+    }
+    .goal-title { font-size: 0.9rem; font-weight: 500; line-height: 1.35; letter-spacing: -0.01em; }
+    .goal-actions { display: flex; gap: 5px; flex-shrink: 0; }
+    .sem-tag {
+      font-size: 0.58rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 20px;
+      letter-spacing: 0.03em; white-space: nowrap;
+    }
+    .st1 { background: rgba(192,132,252,0.12); color: var(--accent); border: 1px solid rgba(192,132,252,0.22); }
+    .st2 { background: rgba(96,165,250,0.12);  color: var(--blue);   border: 1px solid rgba(96,165,250,0.22);  }
+    .st3 { background: rgba(74,222,128,0.12);  color: var(--green);  border: 1px solid rgba(74,222,128,0.22);  }
+    .goal-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+    .meta-item { font-size: 0.62rem; color: var(--text3); }
+    .pb-wrap { background: rgba(255,255,255,0.05); border-radius: 3px; height: 3px; margin: 8px 0 5px; }
+    .pb {
+      height: 3px; border-radius: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width 0.5s;
+    }
+    .pb-row {
+      display: flex; justify-content: space-between;
+      font-size: 0.62rem; color: var(--text3); margin-bottom: 10px;
+    }
+    .tasks { display: flex; flex-direction: column; gap: 4px; }
+    .task-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 0.73rem; color: var(--text2);
+      cursor: pointer; padding: 3px 0;
+      transition: color 0.15s;
+    }
+    .task-item:hover { color: var(--text); }
+    .task-item.done { color: var(--text3); text-decoration: line-through; }
+    .tdot {
+      width: 6px; height: 6px; border-radius: 50%;
+      border: 1.5px solid var(--text3);
+      flex-shrink: 0; transition: all 0.18s;
+    }
+    .tdot.done { background: var(--green); border-color: var(--green); }
+
+    /* ─── MOTIVATIONAL CARD ────────────────────────────────── */
+    .motive-card {
+      background: linear-gradient(135deg, rgba(192,132,252,0.07), rgba(129,140,248,0.05));
+      border: 1px solid rgba(192,132,252,0.15);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem; margin-bottom: 1.75rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .motive-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .motive-text {
+      font-family: var(--serif);
+      font-size: 1rem; font-weight: 400;
+      font-style: italic; color: var(--text2); line-height: 1.55;
+    }
+    .motive-attr {
+      font-size: 0.65rem; color: var(--text3);
+      margin-top: 3px; font-style: normal;
+      font-family: var(--font);
+    }
+
+    /* ─── PROJECTS ─────────────────────────────────────────── */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+    .proj-card {
+      background: var(--glass2);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 1.35rem; position: relative; overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .proj-card:hover { border-color: var(--border); transform: translateY(-2px); }
+    .proj-glow {
+      position: absolute; top: -30px; right: -30px;
+      width: 100px; height: 100px; border-radius: 50%;
+      filter: blur(30px); pointer-events: none; opacity: 0.4;
+    }
+    .proj-status-row { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+    .status-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.75); }
+    }
+    .status-txt { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .proj-name { font-size: 0.95rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 5px; }
+    .proj-desc { font-size: 0.73rem; color: var(--text2); line-height: 1.6; margin-bottom: 1rem; }
+    .stack-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 0.75rem; }
+    .stag {
+      font-size: 0.6rem; font-weight: 500;
+      padding: 2px 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border2);
+      border-radius: 4px; color: var(--text2);
+    }
+    .proj-date { font-size: 0.62rem; color: var(--text3); margin-bottom: 10px; }
+    .proj-links { display: flex; gap: 7px; }
+    .plink {
+      display: flex; align-items: center; gap: 4px;
+      font-size: 0.65rem; font-weight: 500;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border2);
+      border-radius: 6px; padding: 6px 12px;
+      text-decoration: none; color: var(--text2);
+      transition: all 0.18s;
+    }
+    .plink:hover { background: rgba(255,255,255,0.09); color: var(--text); border-color: var(--border); }
+
+    /* ─── SKILLS ───────────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    .skill-card {
+      background: var(--glass2);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius); padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .skill-card:hover { border-color: var(--border); }
+    .sk-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .sk-name { font-size: 0.88rem; font-weight: 600; letter-spacing: -0.02em; }
+    .sk-pct { font-size: 0.65rem; color: var(--text3); }
+    .sk-steps { display: flex; flex-direction: column; gap: 5px; margin-top: 10px; }
+    .sk-step {
+      display: flex; align-items: center; gap: 8px;
+      padding: 7px 10px; border-radius: 7px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid transparent; transition: all 0.18s;
+    }
+    .sk-step.act { background: rgba(192,132,252,0.07); border-color: rgba(192,132,252,0.2); }
+    .step-ic {
+      width: 20px; height: 20px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.5rem; flex-shrink: 0; font-weight: 700;
+    }
+    .ic-d { background: rgba(74,222,128,0.12); border: 1.5px solid var(--green); color: var(--green); }
+    .ic-a { background: rgba(192,132,252,0.12); border: 1.5px solid var(--accent); color: var(--accent); }
+    .ic-n { background: rgba(255,255,255,0.03); border: 1.5px solid var(--text3); color: var(--text3); }
+    .step-lbl { font-size: 0.72rem; flex: 1; letter-spacing: -0.01em; }
+    .lbl-d { color: var(--text3); text-decoration: line-through; }
+    .lbl-a { color: var(--text); font-weight: 500; }
+    .lbl-n { color: var(--text3); }
+    .adv-btn {
+      background: rgba(192,132,252,0.1);
+      border: 1px solid rgba(192,132,252,0.25);
+      color: var(--accent); font-family: var(--font);
+      font-size: 0.6rem; font-weight: 600;
+      padding: 3px 8px; border-radius: 5px;
+      cursor: pointer; transition: all 0.18s; white-space: nowrap;
+    }
+    .adv-btn:hover { background: rgba(192,132,252,0.2); }
+
+    /* ─── STREAK HERO ──────────────────────────────────────── */
+    .streak-hero {
+      background: linear-gradient(135deg, rgba(251,146,60,0.09), rgba(245,158,11,0.05));
+      border: 1px solid rgba(251,146,60,0.18);
+      border-radius: var(--radius); padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+      cursor: pointer; transition: all 0.18s; margin-bottom: 1.5rem;
+    }
+    .streak-hero:hover {
+      background: linear-gradient(135deg, rgba(251,146,60,0.15), rgba(245,158,11,0.08));
+      transform: translateY(-1px);
+    }
+    .sf { font-size: 1.8rem; }
+    .si { flex: 1; }
+    .s-num { font-family: var(--serif); font-size: 1.5rem; color: var(--orange); line-height: 1; }
+    .s-lbl { font-size: 0.65rem; color: var(--text3); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+    .s-act { font-size: 0.68rem; font-weight: 500; color: var(--orange); letter-spacing: 0.03em; }
+
+    /* ─── EMPTY STATE ──────────────────────────────────────── */
+    .empty { text-align: center; padding: 3rem 1rem; color: var(--text3); font-size: 0.8rem; }
+    .ei { font-size: 2rem; margin-bottom: 8px; opacity: 0.2; }
+
+    /* ─── HINT TEXT ────────────────────────────────────────── */
+    .hint { font-size: 0.68rem; color: var(--text3); }
+
+    /* ─── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .nav-tabs { gap: 0; }
+      .nav-tab { padding: 6px 10px; font-size: 0.7rem; }
+      .hero-greeting { font-size: 1.9rem; }
+      .wrap { padding: 1.5rem 1rem; }
+      .grid2 { grid-template-columns: 1fr; }
+      nav { padding: 0 1rem; }
+    }
+    @media (max-width: 480px) {
+      .nav-tabs { display: none; }
+      .mobile-nav {
+        position: fixed; bottom: 0; left: 0; right: 0;
+        background: rgba(10,10,15,0.95);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid var(--border2);
+        display: flex; z-index: 100; padding: 8px 0;
+      }
+      .mobile-nav button {
+        flex: 1; background: none; border: none;
+        color: var(--text3); font-family: var(--font);
+        font-size: 0.65rem; font-weight: 500;
+        padding: 6px 4px; cursor: pointer;
+        display: flex; flex-direction: column;
+        align-items: center; gap: 3px; transition: color 0.18s;
+      }
+      .mobile-nav button.active { color: var(--accent); }
+      .mobile-nav button span { font-size: 1rem; }
+      .wrap { padding-bottom: 5rem; }
+    }
+    @media (min-width: 481px) { .mobile-nav { display: none; } }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ──────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-brand">
+      <div class="nav-logo-mark">K</div>
+      <span class="nav-name">DevTrack</span>
+    </div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="goTo('dsa', this)">DSA</button>
+      <button class="nav-tab" onclick="goTo('college', this)">College</button>
+      <button class="nav-tab" onclick="goTo('projects', this)">Projects</button>
+      <button class="nav-tab" onclick="goTo('skills', this)">Skills</button>
+    </div>
+    <div class="streak-chip">🔥 <span id="nstreak">0</span> day streak</div>
+  </nav>
+
+  <!-- ─── MOBILE NAV ───────────────────────────────────────── -->
+  <div class="mobile-nav">
+    <button class="active" onclick="goToMobile('dsa', this)"><span>⌨</span>DSA</button>
+    <button onclick="goToMobile('college', this)"><span>🎓</span>College</button>
+    <button onclick="goToMobile('projects', this)"><span>⚙</span>Projects</button>
+    <button onclick="goToMobile('skills', this)"><span>📡</span>Skills</button>
+  </div>
+
+  <div class="wrap">
+
+    <!-- ═══════════════ DSA SECTION ═══════════════ -->
+    <div class="section active" id="sec-dsa">
+
+      <div class="hero">
+        <div class="hero-greeting">Hello, <em>Kaustubh.</em></div>
+        <div class="hero-sub">Track every problem, own every streak. Your consistency is your superpower.</div>
+        <div class="hero-quote">"The expert in anything was once a beginner who refused to give up. Keep solving, keep compounding."</div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat"><div class="stat-val cv" id="s-total">0</div><div class="stat-label">Total Solved</div></div>
+        <div class="stat"><div class="stat-val cg" id="s-today">0</div><div class="stat-label">Today</div></div>
+        <div class="stat"><div class="stat-val co" id="s-streak">0</div><div class="stat-label">Day Streak</div></div>
+        <div class="stat"><div class="stat-val cb" id="s-week">0</div><div class="stat-label">This Week</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Problem Log</span>
+          <button class="btn-p" onclick="openM('add-dsa')">+ Add Problem</button>
+        </div>
+        <div class="controls">
+          <button class="filter-btn active" onclick="fDSA('all', this)">All</button>
+          <button class="filter-btn" onclick="fDSA('Easy', this)">Easy</button>
+          <button class="filter-btn" onclick="fDSA('Medium', this)">Medium</button>
+          <button class="filter-btn" onclick="fDSA('Hard', this)">Hard</button>
+          <button class="filter-btn" onclick="fDSA('solved', this)">Solved</button>
+          <button class="filter-btn" onclick="fDSA('unsolved', this)">Unsolved</button>
+        </div>
+        <div style="overflow-x: auto;">
+          <table class="dsa-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Problem</th>
+                <th>Topic</th>
+                <th>Difficulty</th>
+                <th>Platform</th>
+                <th>Date Assigned</th>
+                <th>Date Solved</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="dtbody"></tbody>
+          </table>
+        </div>
+        <div id="d-empty" class="empty" style="display:none">
+          <div class="ei">⌨</div>
+          No problems yet — hit the button above to add one.
+        </div>
+      </div>
+
+      <div class="hm-section">
+        <div class="hm-label">Solve Activity · Last 52 Weeks</div>
+        <div class="heatmap" id="heatmap"></div>
+        <div class="hm-legend">
+          <span class="hm-legend-label">Less</span>
+          <div class="hm-swatch hm-0"></div>
+          <div class="hm-swatch hm-1"></div>
+          <div class="hm-swatch hm-2"></div>
+          <div class="hm-swatch hm-3"></div>
+          <div class="hm-swatch hm-4"></div>
+          <span class="hm-legend-label">More</span>
+        </div>
+      </div>
+
+    </div>
+    <!-- /DSA -->
+
+    <!-- ═══════════════ COLLEGE SECTION ═══════════════ -->
+    <div class="section" id="sec-college">
+
+      <div class="sec-eyebrow">// 02 — academia</div>
+      <div class="sec-heading">College <span>Goals</span></div>
+
+      <div class="motive-card">
+        <div class="motive-icon">✦</div>
+        <div>
+          <div class="motive-text" id="motive-txt">"Your future self is watching you right now through your memories. Make it proud."</div>
+          <div class="motive-attr" id="motive-attr">— Shannon L. Alder</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+        <button class="btn-p" onclick="openM('add-goal')">+ Add Goal</button>
+        <span class="hint">Click tasks to mark done · ✕ to delete a goal</span>
+      </div>
+
+      <div class="goals-grid" id="goals-grid"></div>
+
+    </div>
+    <!-- /COLLEGE -->
+
+    <!-- ═══════════════ PROJECTS SECTION ═══════════════ -->
+    <div class="section" id="sec-projects">
+
+      <div class="sec-eyebrow">// 03 — build stuff</div>
+      <div class="sec-heading">Projects <span>&amp; Work</span></div>
+
+      <div style="margin-bottom: 1.25rem;">
+        <button class="btn-p" onclick="openM('add-project')">+ Add Project</button>
+      </div>
+      <div class="proj-grid" id="proj-grid"></div>
+
+    </div>
+    <!-- /PROJECTS -->
+
+    <!-- ═══════════════ SKILLS SECTION ═══════════════ -->
+    <div class="section" id="sec-skills">
+
+      <div class="sec-eyebrow">// 04 — level up</div>
+      <div class="sec-heading">Skills <span>Roadmap</span></div>
+
+      <div class="streak-hero" onclick="logStreak()">
+        <div class="sf">🔥</div>
+        <div class="si">
+          <div class="s-num"><span id="sd">0</span> Days</div>
+          <div class="s-lbl">Last logged: <span id="slast">Never</span></div>
+        </div>
+        <div class="s-act" id="s-act-txt">Log today →</div>
+      </div>
+
+      <div style="margin-bottom: 1.25rem;">
+        <button class="btn-p" onclick="openM('add-skill')">+ Add Skill Track</button>
+      </div>
+      <div class="skills-grid" id="skills-grid"></div>
+
+    </div>
+    <!-- /SKILLS -->
+
+  </div><!-- /wrap -->
+
+
+  <!-- ═══════════════ MODALS ═══════════════ -->
+
+  <!-- Add DSA Problem -->
+  <div class="overlay" id="modal-add-dsa">
+    <div class="modal">
+      <button class="xbtn" onclick="closeM('add-dsa')">✕</button>
+      <div class="modal-title">Add Problem</div>
+      <div class="fg">
+        <label class="fl">Problem Name</label>
+        <input class="fi" id="dn" placeholder="e.g. Two Sum" />
+      </div>
+      <div class="fg">
+        <label class="fl">Topic</label>
+        <input class="fi" id="dt" placeholder="e.g. Arrays, DP, Graphs" />
+      </div>
+      <div class="grid2">
+        <div class="fg">
+          <label class="fl">Difficulty</label>
+          <select class="fi" id="dd">
+            <option>Easy</option>
+            <option selected>Medium</option>
+            <option>Hard</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">Platform</label>
+          <select class="fi" id="dp">
+            <option value="LC">LeetCode</option>
+            <option value="GFG">GeeksforGeeks</option>
+            <option value="CN">Coding Ninjas</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="fg">
+          <label class="fl">Date Assigned</label>
+          <input class="fi" id="da" type="date" />
+        </div>
+        <div class="fg" style="display:flex; align-items:flex-end;">
+          <label class="fi" style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+            <input type="checkbox" id="dc" style="accent-color:var(--accent); width:14px; height:14px;" />
+            <span style="font-size:0.75rem; color:var(--text2);">Already solved</span>
+          </label>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl">Problem URL</label>
+        <input class="fi" id="du" placeholder="https://leetcode.com/problems/..." />
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeM('add-dsa')">Cancel</button>
+        <button class="btn-p" onclick="addDSA()">Add Problem</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add College Goal -->
+  <div class="overlay" id="modal-add-goal">
+    <div class="modal">
+      <button class="xbtn" onclick="closeM('add-goal')">✕</button>
+      <div class="modal-title">Add College Goal</div>
+      <div class="fg">
+        <label class="fl">Goal Title</label>
+        <input class="fi" id="gt" placeholder="e.g. Maintain 8+ CGPA" />
+      </div>
+      <div class="grid2">
+        <div class="fg">
+          <label class="fl">Semester</label>
+          <select class="fi" id="gs">
+            <option value="s1">Sem 1–2</option>
+            <option value="s2">Sem 3–4</option>
+            <option value="s3">Sem 5–6+</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">Date Assigned</label>
+          <input class="fi" id="ga" type="date" />
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl">Deadline</label>
+        <input class="fi" id="gd" type="date" />
+      </div>
+      <div class="fg">
+        <label class="fl">Sub-tasks (comma separated)</label>
+        <input class="fi" id="gts" placeholder="Study daily, Complete assignments, ..." />
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeM('add-goal')">Cancel</button>
+        <button class="btn-p" onclick="addGoal()">Add Goal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Project -->
+  <div class="overlay" id="modal-add-project">
+    <div class="modal">
+      <button class="xbtn" onclick="closeM('add-project')">✕</button>
+      <div class="modal-title">Add Project</div>
+      <div class="fg">
+        <label class="fl">Project Name</label>
+        <input class="fi" id="pn" placeholder="e.g. Portfolio Website" />
+      </div>
+      <div class="fg">
+        <label class="fl">Description</label>
+        <input class="fi" id="pd" placeholder="What does it do?" />
+      </div>
+      <div class="fg">
+        <label class="fl">Tech Stack (comma separated)</label>
+        <input class="fi" id="psk" placeholder="React, Node.js, MongoDB" />
+      </div>
+      <div class="grid2">
+        <div class="fg">
+          <label class="fl">Date Assigned</label>
+          <input class="fi" id="pda" type="date" />
+        </div>
+        <div class="fg">
+          <label class="fl">Status</label>
+          <select class="fi" id="pst">
+            <option value="active">Active</option>
+            <option value="done">Completed</option>
+            <option value="paused">Paused</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl">GitHub URL</label>
+        <input class="fi" id="pg" placeholder="https://github.com/username/repo" />
+      </div>
+      <div class="fg">
+        <label class="fl">Live URL (optional)</label>
+        <input class="fi" id="pl" placeholder="https://myapp.vercel.app" />
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeM('add-project')">Cancel</button>
+        <button class="btn-p" onclick="addProject()">Add Project</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Skill Track -->
+  <div class="overlay" id="modal-add-skill">
+    <div class="modal">
+      <button class="xbtn" onclick="closeM('add-skill')">✕</button>
+      <div class="modal-title">Add Skill Track</div>
+      <div class="fg">
+        <label class="fl">Track Name</label>
+        <input class="fi" id="skn" placeholder="e.g. Web Development" />
+      </div>
+      <div class="fg">
+        <label class="fl">Milestones (one per line)</label>
+        <textarea class="fi" id="sks" rows="5"
+          placeholder="HTML & CSS basics&#10;JavaScript ES6+&#10;React.js&#10;Node.js backend&#10;Deploy to cloud"></textarea>
+      </div>
+      <div class="fg">
+        <label class="fl">Current step number</label>
+        <input class="fi" id="skc" type="number" value="1" min="1" />
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeM('add-skill')">Cancel</button>
+        <button class="btn-p" onclick="addSkill()">Add Track</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════ JAVASCRIPT ═══════════════ -->
+  <script>
+    /* ─── STATE ──────────────────────────────────────────────── */
+    let problems = [];
+    let goals    = [];
+    let projects = [];
+    let skills   = [];
+    let streak   = { count: 0, lastLog: null, logs: {} };
+    let dsaFilter = 'all';
+
+    /* ─── PERSISTENCE ────────────────────────────────────────── */
+    function save() {
+      localStorage.setItem('dt_problems', JSON.stringify(problems));
+      localStorage.setItem('dt_goals',    JSON.stringify(goals));
+      localStorage.setItem('dt_projects', JSON.stringify(projects));
+      localStorage.setItem('dt_skills',   JSON.stringify(skills));
+      localStorage.setItem('dt_streak',   JSON.stringify(streak));
+    }
+    function load() {
+      problems = JSON.parse(localStorage.getItem('dt_problems') || '[]');
+      goals    = JSON.parse(localStorage.getItem('dt_goals')    || '[]');
+      projects = JSON.parse(localStorage.getItem('dt_projects') || '[]');
+      skills   = JSON.parse(localStorage.getItem('dt_skills')   || '[]');
+      streak   = JSON.parse(localStorage.getItem('dt_streak')   || JSON.stringify({ count: 0, lastLog: null, logs: {} }));
+    }
+
+    /* ─── HELPERS ────────────────────────────────────────────── */
+    const today = () => new Date().toISOString().slice(0, 10);
+    const fmt   = d => {
+      if (!d) return '—';
+      const p = d.split('-');
+      return `${p[2]}/${p[1]}/${p[0].slice(2)}`;
+    };
+
+    const QUOTES = [
+      { q: "The expert in anything was once a beginner who refused to give up.", a: "— Helen Hayes" },
+      { q: "Your future self is watching you right now through your memories. Make it proud.", a: "— Shannon L. Alder" },
+      { q: "Don't wish it were easier. Wish you were better.", a: "— Jim Rohn" },
+      { q: "Success is the sum of small efforts, repeated day in and day out.", a: "— Robert Collier" },
+      { q: "Hard work beats talent when talent doesn't work hard.", a: "— Tim Notke" },
+      { q: "The secret of getting ahead is getting started.", a: "— Mark Twain" },
+      { q: "You don't have to be great to start, but you have to start to be great.", a: "— Zig Ziglar" },
+      { q: "An investment in knowledge pays the best interest.", a: "— Benjamin Franklin" },
+      { q: "The only way to do great work is to love what you do.", a: "— Steve Jobs" },
+      { q: "Code is like humor. When you have to explain it, it's bad.", a: "— Cory House" },
+    ];
+
+    /* ─── NAVIGATION ─────────────────────────────────────────── */
+    function goTo(sec, el) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('sec-' + sec).classList.add('active');
+      el.classList.add('active');
+      if (sec === 'college') refreshQuote();
+    }
+    function goToMobile(sec, el) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.mobile-nav button').forEach(b => b.classList.remove('active'));
+      document.getElementById('sec-' + sec).classList.add('active');
+      el.classList.add('active');
+      if (sec === 'college') refreshQuote();
+    }
+    function refreshQuote() {
+      const q = QUOTES[Math.floor(Math.random() * QUOTES.length)];
+      document.getElementById('motive-txt').textContent  = `"${q.q}"`;
+      document.getElementById('motive-attr').textContent = q.a;
+    }
+
+    /* ─── MODAL HELPERS ──────────────────────────────────────── */
+    function openM(id)  { document.getElementById('modal-' + id).classList.add('open'); }
+    function closeM(id) { document.getElementById('modal-' + id).classList.remove('open'); }
+    document.querySelectorAll('.overlay').forEach(o =>
+      o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); })
+    );
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') document.querySelectorAll('.overlay.open').forEach(o => o.classList.remove('open'));
+    });
+
+    /* ══════════════════════════════════════════════════════════
+       DSA
+    ══════════════════════════════════════════════════════════ */
+    function addDSA() {
+      const name = document.getElementById('dn').value.trim();
+      if (!name) return;
+      const alreadySolved = document.getElementById('dc').checked;
+      problems.push({
+        id:           Date.now(),
+        name,
+        topic:        document.getElementById('dt').value.trim() || 'General',
+        diff:         document.getElementById('dd').value,
+        platform:     document.getElementById('dp').value,
+        url:          document.getElementById('du').value.trim(),
+        dateAssigned: document.getElementById('da').value || today(),
+        solved:       alreadySolved,
+        dateSolved:   alreadySolved ? today() : null,
+      });
+      closeM('add-dsa');
+      ['dn','dt','du','da'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('dc').checked = false;
+      if (alreadySolved) streak.logs[today()] = (streak.logs[today()] || 0) + 1;
+      calcStreak(); renderDSA(); updateStats(); save();
+    }
+
+    function toggleSolve(id) {
+      const p = problems.find(x => x.id === id);
+      if (!p) return;
+      p.solved     = !p.solved;
+      p.dateSolved = p.solved ? today() : null;
+      if (p.solved) streak.logs[today()] = (streak.logs[today()] || 0) + 1;
+      calcStreak(); renderDSA(); updateStats(); save();
+    }
+
+    function delDSA(id) {
+      problems = problems.filter(x => x.id !== id);
+      renderDSA(); updateStats(); save();
+    }
+
+    function fDSA(f, el) {
+      dsaFilter = f;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      renderDSA();
+    }
+
+    const PM = {
+      LC:  { l: 'LeetCode',      c: 'plc' },
+      GFG: { l: 'GeeksforGeeks', c: 'pgfg' },
+      CN:  { l: 'Coding Ninjas', c: 'pcn' },
+    };
+
+    function renderDSA() {
+      let list = [...problems];
+      if (['Easy','Medium','Hard'].includes(dsaFilter)) list = list.filter(p => p.diff === dsaFilter);
+      else if (dsaFilter === 'solved')   list = list.filter(p => p.solved);
+      else if (dsaFilter === 'unsolved') list = list.filter(p => !p.solved);
+      list.sort((a, b) => b.id - a.id);
+
+      const em = document.getElementById('d-empty');
+      const tb = document.getElementById('dtbody');
+
+      if (!list.length) { tb.innerHTML = ''; em.style.display = 'block'; return; }
+      em.style.display = 'none';
+
+      tb.innerHTML = list.map(p => {
+        const pm = PM[p.platform] || { l: p.platform, c: '' };
+        const solved = p.solved;
+        return `
+          <tr>
+            <td>
+              <div class="chk${solved ? ' on' : ''}" onclick="toggleSolve(${p.id})">
+                ${solved ? '✓' : ''}
+              </div>
+            </td>
+            <td style="font-weight:500; color:${solved ? 'var(--text3)' : 'var(--text)'}; ${solved ? 'text-decoration:line-through;' : ''} letter-spacing:-0.01em;">
+              ${p.name}
+            </td>
+            <td style="color:var(--text2); font-size:0.73rem;">${p.topic}</td>
+            <td><span class="diff-badge ${p.diff.toLowerCase()}">${p.diff}</span></td>
+            <td>
+              ${p.url
+                ? `<a class="plat-link ${pm.c}" href="${p.url}" target="_blank" rel="noopener">${pm.l} ↗</a>`
+                : `<span class="plat-link ${pm.c}" style="cursor:default;">${pm.l}</span>`}
+            </td>
+            <td><span class="date-cell">${fmt(p.dateAssigned)}</span></td>
+            <td><span class="date-cell">${solved && p.dateSolved ? fmt(p.dateSolved) : '—'}</span></td>
+            <td><button class="row-del" onclick="delDSA(${p.id})" title="Delete">✕</button></td>
+          </tr>`;
+      }).join('');
+    }
+
+    function calcStreak() {
+      let c = 0, d = new Date();
+      while (streak.logs[d.toISOString().slice(0,10)] > 0) {
+        c++;
+        d.setDate(d.getDate() - 1);
+      }
+      streak.count = c;
+      ['nstreak','s-streak','sd'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = c;
+      });
+    }
+
+    function updateStats() {
+      const t  = today();
+      const wa = new Date(); wa.setDate(wa.getDate() - 7);
+      document.getElementById('s-total').textContent = problems.filter(p => p.solved).length;
+      document.getElementById('s-today').textContent = problems.filter(p => p.solved && p.dateSolved === t).length;
+      document.getElementById('s-week').textContent  = problems.filter(p => p.solved && p.dateSolved && new Date(p.dateSolved) >= wa).length;
+      renderHeatmap();
+    }
+
+    function renderHeatmap() {
+      const hm = document.getElementById('heatmap');
+      hm.innerHTML = '';
+      for (let i = 363; i >= 0; i--) {
+        const d   = new Date(); d.setDate(d.getDate() - i);
+        const k   = d.toISOString().slice(0, 10);
+        const cnt = streak.logs[k] || 0;
+        const lvl = cnt === 0 ? 0 : cnt === 1 ? 1 : cnt <= 3 ? 2 : cnt <= 5 ? 3 : 4;
+        const c   = document.createElement('div');
+        c.className = `hm-cell hm-${lvl}`;
+        c.title     = `${k}: ${cnt} solved`;
+        hm.appendChild(c);
+      }
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       GOALS
+    ══════════════════════════════════════════════════════════ */
+    function addGoal() {
+      const t = document.getElementById('gt').value.trim();
+      if (!t) return;
+      const tasks = document.getElementById('gts').value
+        .split(',').map(s => s.trim()).filter(Boolean);
+      goals.push({
+        id:           Date.now(),
+        title:        t,
+        sem:          document.getElementById('gs').value,
+        dateAssigned: document.getElementById('ga').value || today(),
+        deadline:     document.getElementById('gd').value,
+        tasks:        tasks.map(x => ({ text: x, done: false })),
+      });
+      closeM('add-goal');
+      ['gt','gts','ga','gd'].forEach(id => document.getElementById(id).value = '');
+      renderGoals(); save();
+    }
+
+    function toggleTask(gid, ti) {
+      const g = goals.find(x => x.id === gid);
+      if (g) g.tasks[ti].done = !g.tasks[ti].done;
+      renderGoals(); save();
+    }
+
+    function delGoal(id) {
+      goals = goals.filter(x => x.id !== id);
+      renderGoals(); save();
+    }
+
+    const SC = { s1:'st1', s2:'st2', s3:'st3' };
+    const SL = { s1:'Sem 1–2', s2:'Sem 3–4', s3:'Sem 5–6+' };
+
+    function renderGoals() {
+      const g = document.getElementById('goals-grid');
+      if (!goals.length) {
+        g.innerHTML = '<div class="empty"><div class="ei">🎓</div>No goals yet — add your semester targets!</div>';
+        return;
+      }
+      g.innerHTML = goals.map(go => {
+        const done = go.tasks.filter(t => t.done).length;
+        const pct  = go.tasks.length ? Math.round(done / go.tasks.length * 100) : 0;
+        return `
+          <div class="goal-card">
+            <div class="goal-top">
+              <div>
+                <span class="sem-tag ${SC[go.sem] || 'st1'}">${SL[go.sem] || go.sem}</span>
+                <div class="goal-title" style="margin-top:6px;">${go.title}</div>
+              </div>
+              <div class="goal-actions">
+                <button class="btn-danger" onclick="delGoal(${go.id})" title="Delete goal">✕</button>
+              </div>
+            </div>
+            <div class="goal-meta">
+              ${go.dateAssigned ? `<div class="meta-item">📅 Assigned: ${fmt(go.dateAssigned)}</div>` : ''}
+              ${go.deadline     ? `<div class="meta-item">⏳ Due: ${fmt(go.deadline)}</div>` : ''}
+            </div>
+            <div class="pb-wrap"><div class="pb" style="width:${pct}%;"></div></div>
+            <div class="pb-row"><span>Progress</span><span>${pct}% · ${done}/${go.tasks.length}</span></div>
+            <div class="tasks">
+              ${go.tasks.map((t, i) => `
+                <div class="task-item${t.done ? ' done' : ''}" onclick="toggleTask(${go.id}, ${i})">
+                  <div class="tdot${t.done ? ' done' : ''}"></div>
+                  ${t.text}
+                </div>`).join('')}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       PROJECTS
+    ══════════════════════════════════════════════════════════ */
+    function addProject() {
+      const n = document.getElementById('pn').value.trim();
+      if (!n) return;
+      projects.push({
+        id:           Date.now(),
+        name:         n,
+        desc:         document.getElementById('pd').value.trim(),
+        stack:        document.getElementById('psk').value.split(',').map(s => s.trim()).filter(Boolean),
+        github:       document.getElementById('pg').value.trim(),
+        live:         document.getElementById('pl').value.trim(),
+        status:       document.getElementById('pst').value,
+        dateAssigned: document.getElementById('pda').value || today(),
+      });
+      closeM('add-project');
+      ['pn','pd','psk','pg','pl','pda'].forEach(id => document.getElementById(id).value = '');
+      renderProjects(); save();
+    }
+
+    function delProject(id) {
+      projects = projects.filter(x => x.id !== id);
+      renderProjects(); save();
+    }
+
+    const stC = { active: 'var(--green)', done: 'var(--blue)', paused: 'var(--text3)' };
+    const stL = { active: 'Active',       done: 'Shipped',     paused: 'Paused' };
+    const glC = { active: 'rgba(74,222,128,0.5)', done: 'rgba(96,165,250,0.4)', paused: 'rgba(255,255,255,0.05)' };
+
+    function renderProjects() {
+      const g = document.getElementById('proj-grid');
+      if (!projects.length) {
+        g.innerHTML = '<div class="empty"><div class="ei">⚙</div>No projects yet — add your first build!</div>';
+        return;
+      }
+      g.innerHTML = projects.map(p => `
+        <div class="proj-card">
+          <div class="proj-glow" style="background:${glC[p.status] || 'transparent'};"></div>
+          <div class="proj-status-row">
+            <div class="status-dot" style="background:${stC[p.status] || 'var(--text3)'};"></div>
+            <span class="status-txt" style="color:${stC[p.status] || 'var(--text3)'};">${stL[p.status] || p.status}</span>
+          </div>
+          <div class="proj-name">${p.name}</div>
+          <div class="proj-desc">${p.desc || 'No description added.'}</div>
+          <div class="stack-row">${p.stack.map(s => `<span class="stag">${s}</span>`).join('')}</div>
+          ${p.dateAssigned ? `<div class="proj-date">📅 Started: ${fmt(p.dateAssigned)}</div>` : ''}
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:4px;">
+            <div class="proj-links">
+              ${p.github ? `<a class="plink" href="${p.github}" target="_blank" rel="noopener">⎇ GitHub ↗</a>` : ''}
+              ${p.live   ? `<a class="plink" href="${p.live}"   target="_blank" rel="noopener">◉ Live ↗</a>`   : ''}
+            </div>
+            <button class="btn-danger" onclick="delProject(${p.id})">✕</button>
+          </div>
+        </div>`).join('');
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SKILLS
+    ══════════════════════════════════════════════════════════ */
+    function addSkill() {
+      const n    = document.getElementById('skn').value.trim();
+      const stps = document.getElementById('sks').value.split('\n').map(s => s.trim()).filter(Boolean);
+      if (!n || !stps.length) return;
+      const cur  = Math.min(parseInt(document.getElementById('skc').value) || 1, stps.length);
+      skills.push({ id: Date.now(), name: n, steps: stps, current: cur });
+      closeM('add-skill');
+      ['skn','sks'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('skc').value = '1';
+      renderSkills(); save();
+    }
+
+    function advStep(id) {
+      const s = skills.find(x => x.id === id);
+      if (s && s.current < s.steps.length) s.current++;
+      renderSkills(); save();
+    }
+
+    function delSkill(id) {
+      skills = skills.filter(x => x.id !== id);
+      renderSkills(); save();
+    }
+
+    function renderSkills() {
+      const g = document.getElementById('skills-grid');
+      if (!skills.length) {
+        g.innerHTML = '<div class="empty"><div class="ei">📡</div>No skill tracks yet — add your learning roadmap!</div>';
+        return;
+      }
+      g.innerHTML = skills.map(sk => {
+        const pct = Math.round((sk.current - 1) / sk.steps.length * 100);
+        return `
+          <div class="skill-card">
+            <div class="sk-head">
+              <div class="sk-name">${sk.name}</div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span class="sk-pct">${pct}%</span>
+                <button class="btn-danger" onclick="delSkill(${sk.id})">✕</button>
+              </div>
+            </div>
+            <div class="pb-wrap"><div class="pb" style="width:${pct}%;"></div></div>
+            <div class="sk-steps">
+              ${sk.steps.map((s, i) => {
+                const idx    = i + 1;
+                const isDone = idx < sk.current;
+                const isAct  = idx === sk.current;
+                return `
+                  <div class="sk-step${isAct ? ' act' : ''}">
+                    <div class="step-ic ${isDone ? 'ic-d' : isAct ? 'ic-a' : 'ic-n'}">
+                      ${isDone ? '✓' : isAct ? '▶' : '·'}
+                    </div>
+                    <div class="step-lbl ${isDone ? 'lbl-d' : isAct ? 'lbl-a' : 'lbl-n'}">${s}</div>
+                    ${isAct ? `<button class="adv-btn" onclick="advStep(${sk.id})">Done →</button>` : ''}
+                  </div>`;
+              }).join('')}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       STREAK
+    ══════════════════════════════════════════════════════════ */
+    function logStreak() {
+      const t   = today();
+      const act = document.getElementById('s-act-txt');
+      if (streak.lastLog === t) {
+        act.textContent = 'Already logged today ✓';
+        return;
+      }
+      streak.logs[t]  = (streak.logs[t] || 0) + 1;
+      streak.lastLog  = t;
+      calcStreak();
+      document.getElementById('slast').textContent = fmt(t);
+      act.textContent = 'Logged today ✓';
+      updateStats(); save();
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       INIT
+    ══════════════════════════════════════════════════════════ */
+    load();
+    calcStreak();
+    renderDSA();
+    updateStats();
+    renderGoals();
+    renderProjects();
+    renderSkills();
+
+    // update streak last-logged label if exists
+    if (streak.lastLog) {
+      const el = document.getElementById('slast');
+      if (el) el.textContent = fmt(streak.lastLog);
+    }
+  </script>
+
+</body>
+</html>
