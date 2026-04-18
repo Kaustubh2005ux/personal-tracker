@@ -24,12 +24,12 @@ body::before{content:'';position:fixed;width:700px;height:700px;background:radia
 body::after{content:'';position:fixed;width:500px;height:500px;background:radial-gradient(circle,rgba(96,165,250,0.05),transparent 70%);bottom:-100px;left:-100px;pointer-events:none;z-index:0}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border2);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;gap:12px}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border2);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;gap:10px}
 .nb{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .nl{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:600;color:#fff}
 .nm{font-size:.88rem;font-weight:500;letter-spacing:-0.01em}
-.nt{display:flex;gap:2px;background:rgba(255,255,255,0.04);border:1px solid var(--border2);border-radius:10px;padding:3px;flex-wrap:wrap}
-.nav-tab{background:none;border:none;color:var(--text2);font-family:var(--font);font-size:.72rem;font-weight:500;padding:5px 12px;border-radius:7px;cursor:pointer;transition:all .18s;white-space:nowrap}
+.nt{display:flex;gap:2px;background:rgba(255,255,255,0.04);border:1px solid var(--border2);border-radius:10px;padding:3px}
+.nav-tab{background:none;border:none;color:var(--text2);font-family:var(--font);font-size:.71rem;font-weight:500;padding:5px 12px;border-radius:7px;cursor:pointer;transition:all .18s;white-space:nowrap}
 .nav-tab:hover{color:var(--text);background:rgba(255,255,255,0.05)}
 .nav-tab.active{background:rgba(255,255,255,0.09);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.3)}
 .nr{display:flex;align-items:center;gap:8px;flex-shrink:0}
@@ -45,27 +45,27 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.85);backdrop-fi
 .section{display:none}.section.active{display:block}
 
 /* HERO */
-.hero{margin-bottom:2rem}
+.hero{margin-bottom:1.75rem}
 .hg{font-family:var(--serif);font-size:2.4rem;font-weight:400;line-height:1.15;margin-bottom:6px;letter-spacing:-.02em}
 .hg em{font-style:italic;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hs{font-size:.86rem;color:var(--text2);line-height:1.6}
-.hq{margin-top:.8rem;padding:.75rem 1rem;background:var(--glass);border:1px solid var(--border2);border-left:2px solid var(--accent);border-radius:0 var(--rsm) var(--rsm) 0;font-size:.79rem;color:var(--text2);font-style:italic;line-height:1.6}
+.hq{margin-top:.75rem;padding:.75rem 1rem;background:var(--glass);border:1px solid var(--border2);border-left:2px solid var(--accent);border-radius:0 var(--rsm) var(--rsm) 0;font-size:.78rem;color:var(--text2);font-style:italic;line-height:1.6}
 
 /* STATS */
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem}
-.stat{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem 1rem;transition:border-color .2s}
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:1.5rem}
+.stat{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:1rem;transition:border-color .2s}
 .stat:hover{border-color:rgba(255,255,255,.14)}
-.sv{font-family:var(--serif);font-size:2rem;font-weight:400;line-height:1;margin-bottom:3px}
-.sl{font-size:.62rem;font-weight:500;color:var(--text3);letter-spacing:.06em;text-transform:uppercase}
-.cv{color:var(--accent)}.cg{color:var(--green)}.co{color:var(--orange)}.cb{color:var(--blue)}.cy{color:var(--yellow)}
+.sv{font-family:var(--serif);font-size:1.8rem;font-weight:400;line-height:1;margin-bottom:3px}
+.sl{font-size:.6rem;font-weight:500;color:var(--text3);letter-spacing:.06em;text-transform:uppercase}
+.cv{color:var(--accent)}.cg{color:var(--green)}.co{color:var(--orange)}.cb{color:var(--blue)}.cy{color:var(--yellow)}.cp{color:var(--pink)}
 
 /* CARD */
 .card{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:1.35rem}
-.ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
-.ct{font-size:.74rem;font-weight:600;color:var(--text2);letter-spacing:.04em;text-transform:uppercase}
+.ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:8px}
+.ct{font-size:.73rem;font-weight:600;color:var(--text2);letter-spacing:.04em;text-transform:uppercase}
 
 /* SEC HEAD */
-.sey{font-size:.64rem;font-weight:500;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.sey{font-size:.63rem;font-weight:500;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
 .sh{font-family:var(--serif);font-size:1.8rem;font-weight:400;margin-bottom:1.4rem;letter-spacing:-.02em}
 .sh span{font-style:italic;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
@@ -78,27 +78,49 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.85);backdrop-fi
 .btn-edit:hover{background:rgba(96,165,250,.16)}
 .btn-del{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.18);color:var(--red);font-family:var(--font);font-size:.6rem;font-weight:500;padding:3px 8px;border-radius:5px;cursor:pointer;transition:all .18s}
 .btn-del:hover{background:rgba(248,113,113,.16)}
-.fbtn{background:none;border:1px solid var(--border2);color:var(--text3);font-family:var(--font);font-size:.68rem;font-weight:500;padding:4px 11px;border-radius:6px;cursor:pointer;transition:all .18s}
+.fbtn{background:none;border:1px solid var(--border2);color:var(--text3);font-family:var(--font);font-size:.67rem;font-weight:500;padding:4px 11px;border-radius:6px;cursor:pointer;transition:all .18s}
 .fbtn:hover{border-color:var(--border);color:var(--text2)}
 .fbtn.active{background:rgba(192,132,252,.1);border-color:rgba(192,132,252,.3);color:var(--accent)}
 .ctrls{display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap;align-items:center}
 
-/* TABLE */
+/* TODAY BANNER */
+.today-banner{background:linear-gradient(135deg,rgba(192,132,252,0.1),rgba(129,140,248,0.06));border:1px solid rgba(192,132,252,0.25);border-radius:var(--r);padding:1rem 1.25rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:1rem}
+.tb-label{font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.tb-problems{display:flex;flex-direction:column;gap:4px;flex:1}
+.tb-problem-row{display:flex;align-items:center;gap:8px}
+.tb-name{font-size:.85rem;font-weight:500;color:var(--text)}
+.tb-topic{font-size:.63rem;color:var(--text3)}
+.tb-count{font-family:var(--serif);font-size:1.8rem;color:var(--accent);flex-shrink:0;line-height:1}
+
+/* DSA TABLE */
 .tbl{width:100%;border-collapse:collapse}
 .tbl th{font-size:.59rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);padding:7px 10px;text-align:left;border-bottom:1px solid var(--border2)}
-.tbl td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,0.03);font-size:.75rem;vertical-align:middle}
+.tbl td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.03);font-size:.75rem;vertical-align:middle}
 .tbl tbody tr:hover td{background:rgba(255,255,255,.02)}
+
+/* TODAY ROW HIGHLIGHT */
+.tbl tbody tr.today-row td{background:rgba(192,132,252,0.04)}
+.tbl tbody tr.today-row td:first-child{border-left:2px solid var(--accent);padding-left:8px}
+.today-tag{display:inline-flex;align-items:center;font-size:.55rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(192,132,252,.15);color:var(--accent);border:1px solid rgba(192,132,252,.3);border-radius:3px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+.tomorrow-tag{display:inline-flex;align-items:center;font-size:.55rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(251,191,36,.12);color:var(--yellow);border:1px solid rgba(251,191,36,.28);border-radius:3px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+
+/* DATE GROUP HEADER */
+.date-group-row td{background:rgba(255,255,255,0.02);font-size:.62rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);padding:6px 10px;border-bottom:none}
+.date-group-row.today-group td{color:var(--accent);background:rgba(192,132,252,0.05)}
+.date-group-row.tomorrow-group td{color:var(--yellow);background:rgba(251,191,36,0.04)}
+
 .diff{font-size:.58rem;font-weight:600;padding:2px 8px;border-radius:20px}
 .easy{background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2)}
 .medium{background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.2)}
 .hard{background:rgba(248,113,113,.1);color:#f87171;border:1px solid rgba(248,113,113,.2)}
+.later{background:rgba(255,255,255,.06);color:var(--text3);border:1px solid var(--border2)}
 .pl{display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,0.05);border:1px solid var(--border2);border-radius:4px;padding:2px 7px;font-size:.59rem;font-weight:500;text-decoration:none;transition:all .15s}
 .plc{color:#ffa116;border-color:rgba(255,161,22,.2)}.plc:hover{border-color:#ffa116;background:rgba(255,161,22,.08)}
 .pgf{color:#2fc665;border-color:rgba(47,198,101,.2)}.pgf:hover{border-color:#2fc665;background:rgba(47,198,101,.08)}
 .pcn{color:#fb923c;border-color:rgba(251,146,60,.2)}.pcn:hover{border-color:#fb923c;background:rgba(251,146,60,.08)}
 .chk{width:17px;height:17px;border-radius:4px;border:1.5px solid var(--border);background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s;font-size:.6rem;flex-shrink:0}
 .chk.on{background:rgba(74,222,128,.12);border-color:var(--green);color:var(--green)}
-.dc{font-size:.61rem;color:var(--text3)}
+.dc{font-size:.6rem;color:var(--text3);white-space:nowrap}
 .rdel,.redit{background:none;border:none;cursor:pointer;font-size:.68rem;padding:2px 5px;border-radius:4px;transition:color .15s;opacity:0}
 .tbl tbody tr:hover .rdel,.tbl tbody tr:hover .redit{opacity:1}
 .rdel{color:var(--text3)}.rdel:hover{color:var(--red)}
@@ -131,7 +153,6 @@ textarea.fi{resize:vertical;min-height:72px}
 .xbtn{position:absolute;top:.9rem;right:.9rem;background:rgba(255,255,255,.06);border:1px solid var(--border2);color:var(--text3);width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:.72rem;display:flex;align-items:center;justify-content:center;transition:all .18s}
 .xbtn:hover{color:var(--text);background:rgba(255,255,255,.1)}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
 
 /* PROGRESS */
 .pbw{background:rgba(255,255,255,.05);border-radius:3px;height:3px;margin:5px 0 4px}
@@ -187,8 +208,7 @@ textarea.fi{resize:vertical;min-height:72px}
 .skc{background:var(--glass2);border:1px solid var(--border2);border-radius:var(--r);padding:1.1rem;transition:border-color .2s}
 .skc:hover{border-color:var(--border)}
 .skh{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px}
-.ski{flex:1}
-.skn{font-size:.86rem;font-weight:600;letter-spacing:-.02em;margin-bottom:2px}
+.ski{flex:1}.skn{font-size:.86rem;font-weight:600;letter-spacing:-.02em;margin-bottom:2px}
 .skd{font-size:.67rem;color:var(--text3);line-height:1.5}
 .skhr{display:flex;align-items:center;gap:5px;flex-shrink:0}
 .skp{font-size:.61rem;color:var(--text3)}
@@ -205,12 +225,10 @@ textarea.fi{resize:vertical;min-height:72px}
 .lbd{color:var(--text3);text-decoration:line-through}.lba{color:var(--text);font-weight:500}.lbn{color:var(--text3)}
 .advbtn{background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.25);color:var(--accent);font-family:var(--font);font-size:.58rem;font-weight:600;padding:2px 7px;border-radius:4px;cursor:pointer;transition:all .18s;white-space:nowrap}
 .advbtn:hover{background:rgba(192,132,252,.2)}
-
-/* STEP FIELD */
 .step-row{display:flex;gap:7px;align-items:center;margin-bottom:6px}
 .step-row .fi{flex:1}
-.step-row .fi-date{width:130px;flex:none}
-.add-step{background:rgba(192,132,252,.08);border:1px solid rgba(192,132,252,.2);color:var(--accent);font-family:var(--font);font-size:.67rem;padding:5px 10px;border-radius:5px;cursor:pointer;transition:all .18s;white-space:nowrap}
+.fi-date{width:130px;flex:none}
+.add-step{background:rgba(192,132,252,.08);border:1px solid rgba(192,132,252,.2);color:var(--accent);font-family:var(--font);font-size:.67rem;padding:5px 10px;border-radius:5px;cursor:pointer;transition:all .18s}
 .add-step:hover{background:rgba(192,132,252,.15)}
 .rm-step{background:none;border:none;color:var(--text3);cursor:pointer;font-size:.85rem;padding:2px 4px;transition:color .15s;flex-shrink:0}
 .rm-step:hover{color:var(--red)}
@@ -220,8 +238,7 @@ textarea.fi{resize:vertical;min-height:72px}
 .dsa-sb:hover{background:linear-gradient(135deg,rgba(192,132,252,.14),rgba(129,140,248,.08));transform:translateY(-1px)}
 .sk-sb{background:linear-gradient(135deg,rgba(74,222,128,.08),rgba(16,185,129,.04));border:1px solid rgba(74,222,128,.18);border-radius:var(--r);padding:1.1rem 1.3rem;display:flex;align-items:center;gap:.9rem;cursor:pointer;transition:all .18s;margin-bottom:1.25rem}
 .sk-sb:hover{background:linear-gradient(135deg,rgba(74,222,128,.14),rgba(16,185,129,.08));transform:translateY(-1px)}
-.ssf{font-size:1.5rem}
-.ssi{flex:1}
+.ssf{font-size:1.5rem}.ssi{flex:1}
 .ssn{font-family:var(--serif);font-size:1.35rem;line-height:1}
 .ssl{font-size:.61rem;color:var(--text3);letter-spacing:.05em;text-transform:uppercase;margin-top:2px}
 .ssa{font-size:.63rem;font-weight:500;letter-spacing:.03em}
@@ -284,15 +301,14 @@ textarea.fi{resize:vertical;min-height:72px}
 .ei{font-size:1.8rem;margin-bottom:7px;opacity:.2}
 .hint{font-size:.63rem;color:var(--text3)}
 
-/* RESPONSIVE */
 @media(max-width:700px){
-  .stats-row{grid-template-columns:repeat(2,1fr)}
-  .nt{gap:0}.nav-tab{padding:5px 8px;font-size:.66rem}
+  .stats-row{grid-template-columns:repeat(3,1fr)}
+  .nt{gap:0}.nav-tab{padding:5px 8px;font-size:.65rem}
   .hg{font-size:1.8rem}.wrap{padding:1.25rem 1rem}
-  .g2,.g3,.dform{grid-template-columns:1fr}
+  .g2,.dform{grid-template-columns:1fr}
   nav{padding:0 1rem;gap:8px}
   .np{right:.5rem;left:.5rem;width:auto}
-  .nr .nm{display:none}
+  .today-banner{flex-direction:column;align-items:flex-start;gap:.5rem}
 }
 </style>
 </head>
@@ -318,7 +334,6 @@ textarea.fi{resize:vertical;min-height:72px}
   </div>
 </nav>
 
-<!-- NOTIF PANEL -->
 <div class="np" id="npanel">
   <div class="nph"><span>Today's Reminders</span><button class="btn" style="padding:3px 8px;font-size:.6rem" onclick="toggleNotif()">Close</button></div>
   <div class="npl" id="npl"></div>
@@ -330,37 +345,63 @@ textarea.fi{resize:vertical;min-height:72px}
 <div class="section active" id="sec-dsa">
   <div class="hero">
     <div class="hg">Hello, <em>Kaustubh.</em></div>
-    <div class="hs">Track every problem, own every streak. Your consistency is your superpower.</div>
+    <div class="hs">Striver A2Z · 99 problems · Starting Apr 08 2026. Stay consistent, stay dangerous.</div>
     <div class="hq">"The expert in anything was once a beginner who refused to give up. Keep solving, keep compounding."</div>
   </div>
+
+  <!-- TODAY BANNER -->
+  <div class="today-banner" id="today-banner" style="display:none">
+    <div class="tb-count cv" id="tb-count">0</div>
+    <div class="tb-problems" id="tb-problems">
+      <div class="tb-label">Today's Problems — <span id="tb-date"></span></div>
+    </div>
+  </div>
+
   <div class="dsa-sb" onclick="logDSAStreak()">
     <div class="ssf">⚡</div>
     <div class="ssi"><div class="ssn cv"><span id="dsa-sn">0</span> Days</div><div class="ssl">DSA Streak · Last: <span id="dsa-sl">Never</span></div></div>
     <div class="ssa cv" id="dsa-sa">Log today →</div>
   </div>
+
   <div class="stats-row">
-    <div class="stat"><div class="sv cv" id="s-total">0</div><div class="sl">Total Solved</div></div>
+    <div class="stat"><div class="sv cv" id="s-total">0</div><div class="sl">Solved</div></div>
     <div class="stat"><div class="sv cg" id="s-today">0</div><div class="sl">Today</div></div>
-    <div class="stat"><div class="sv co" id="s-streak">0</div><div class="sl">DSA Streak</div></div>
+    <div class="stat"><div class="sv co" id="s-streak">0</div><div class="sl">Streak</div></div>
     <div class="stat"><div class="sv cb" id="s-week">0</div><div class="sl">This Week</div></div>
+    <div class="stat"><div class="sv cy" id="s-remain">0</div><div class="sl">Remaining</div></div>
   </div>
+
   <div class="card">
-    <div class="ch"><span class="ct">Problem Log</span><button class="btn-p" onclick="openDSAModal()">+ Add Problem</button></div>
+    <div class="ch">
+      <span class="ct">Problem Log — Sorted by Date ↑</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <button class="btn-p" onclick="openDSAModal()">+ Add Problem</button>
+        <button class="btn" onclick="resetToPlanner()" title="Reset to original planner data">↺ Reset Planner</button>
+      </div>
+    </div>
     <div class="ctrls">
       <button class="fbtn active" onclick="fDSA('all',this)">All</button>
+      <button class="fbtn" onclick="fDSA('today',this)">Today</button>
+      <button class="fbtn" onclick="fDSA('upcoming',this)">Upcoming</button>
       <button class="fbtn" onclick="fDSA('Easy',this)">Easy</button>
       <button class="fbtn" onclick="fDSA('Medium',this)">Medium</button>
       <button class="fbtn" onclick="fDSA('Hard',this)">Hard</button>
       <button class="fbtn" onclick="fDSA('solved',this)">Solved</button>
       <button class="fbtn" onclick="fDSA('unsolved',this)">Unsolved</button>
+      <button class="fbtn" onclick="fDSA('later',this)">LATER</button>
     </div>
     <div style="overflow-x:auto">
-      <table class="tbl"><thead><tr><th></th><th>Problem</th><th>Topic</th><th>Diff</th><th>Platform</th><th>Assigned</th><th>Solved</th><th></th></tr></thead>
-      <tbody id="dtbody"></tbody></table>
+      <table class="tbl">
+        <thead><tr><th></th><th>Problem</th><th>Topic</th><th>Diff</th><th>Platform</th><th>Assigned</th><th>Solved On</th><th></th></tr></thead>
+        <tbody id="dtbody"></tbody>
+      </table>
     </div>
-    <div id="d-empty" class="empty" style="display:none"><div class="ei">⌨</div>No problems yet.</div>
+    <div id="d-empty" class="empty" style="display:none"><div class="ei">⌨</div>No problems match this filter.</div>
   </div>
-  <div class="hms"><div class="hml">DSA Activity · Last 52 Weeks</div><div class="heatmap" id="hm-dsa"></div>
+
+  <div class="hms">
+    <div class="hml">DSA Activity · Last 52 Weeks</div>
+    <div class="heatmap" id="hm-dsa"></div>
     <div class="hleg"><span class="hlt">Less</span><div class="hsw h0"></div><div class="hsw h1"></div><div class="hsw h2"></div><div class="hsw h3"></div><div class="hsw h4"></div><span class="hlt">More</span></div>
   </div>
 </div>
@@ -396,7 +437,9 @@ textarea.fi{resize:vertical;min-height:72px}
   </div>
   <div style="margin-bottom:1rem"><button class="btn-p" onclick="openSkillModal()">+ Add Skill Track</button></div>
   <div class="skgrid" id="skills-grid"></div>
-  <div class="hms"><div class="hml">Skill Activity · Last 52 Weeks</div><div class="heatmap" id="hm-sk"></div>
+  <div class="hms">
+    <div class="hml">Skill Activity · Last 52 Weeks</div>
+    <div class="heatmap" id="hm-sk"></div>
     <div class="hleg"><span class="hlt">Less</span><div class="hsw hg0"></div><div class="hsw hg1"></div><div class="hsw hg2"></div><div class="hsw hg3"></div><div class="hsw hg4"></div><span class="hlt">More</span></div>
   </div>
 </div>
@@ -416,7 +459,7 @@ textarea.fi{resize:vertical;min-height:72px}
     </div>
     <div class="dform">
       <div class="dfl"><label>What went well today?</label><textarea id="dg" placeholder="I solved 3 problems, finished the backend module..."></textarea></div>
-      <div class="dfl"><label>Where did you lack today?</label><textarea id="dl" placeholder="Didn't focus during afternoon, skipped revision..."></textarea></div>
+      <div class="dfl"><label>Where did you lack today?</label><textarea id="dl" placeholder="Didn't focus, skipped revision..."></textarea></div>
     </div>
     <div style="display:flex;gap:8px;align-items:center;margin-top:.9rem">
       <button class="btn-p" onclick="saveDay()">Save Day</button>
@@ -451,20 +494,17 @@ textarea.fi{resize:vertical;min-height:72px}
     <div id="ra-empty" class="empty" style="display:none"><div class="ei">🔔</div>No reminders yet.</div>
   </div>
 </div>
+</div>
 
-</div><!-- /wrap -->
-
-<!-- ═══════════ MODALS ═══════════ -->
-
-<!-- DSA MODAL -->
+<!-- ═══ MODALS ═══ -->
 <div class="overlay" id="modal-add-dsa">
   <div class="modal">
     <button class="xbtn" onclick="closeM('add-dsa')">✕</button>
     <div class="mtitle" id="dsa-mt">Add Problem</div>
     <div class="fg"><label class="fl">Problem Name</label><input class="fi" id="dn" placeholder="e.g. Two Sum"/></div>
-    <div class="fg"><label class="fl">Topic</label><input class="fi" id="dt" placeholder="e.g. Arrays, DP, Graphs"/></div>
+    <div class="fg"><label class="fl">Topic</label><input class="fi" id="dt" placeholder="e.g. Binary Search, Arrays, DP"/></div>
     <div class="g2">
-      <div class="fg"><label class="fl">Difficulty</label><select class="fi" id="dd"><option>Easy</option><option selected>Medium</option><option>Hard</option></select></div>
+      <div class="fg"><label class="fl">Difficulty</label><select class="fi" id="dd"><option>Easy</option><option selected>Medium</option><option>Hard</option><option>Later</option></select></div>
       <div class="fg"><label class="fl">Platform</label><select class="fi" id="dp"><option value="LC">LeetCode</option><option value="GFG">GeeksforGeeks</option><option value="CN">Coding Ninjas</option></select></div>
     </div>
     <div class="g2">
@@ -477,7 +517,6 @@ textarea.fi{resize:vertical;min-height:72px}
   </div>
 </div>
 
-<!-- GOAL MODAL -->
 <div class="overlay" id="modal-add-goal">
   <div class="modal">
     <button class="xbtn" onclick="closeM('add-goal')">✕</button>
@@ -493,7 +532,6 @@ textarea.fi{resize:vertical;min-height:72px}
   </div>
 </div>
 
-<!-- PROJECT MODAL -->
 <div class="overlay" id="modal-add-project">
   <div class="modal">
     <button class="xbtn" onclick="closeM('add-project')">✕</button>
@@ -511,7 +549,6 @@ textarea.fi{resize:vertical;min-height:72px}
   </div>
 </div>
 
-<!-- SKILL MODAL -->
 <div class="overlay" id="modal-add-skill">
   <div class="modal modal-w">
     <button class="xbtn" onclick="closeM('add-skill')">✕</button>
@@ -530,7 +567,6 @@ textarea.fi{resize:vertical;min-height:72px}
   </div>
 </div>
 
-<!-- REMINDER MODAL -->
 <div class="overlay" id="modal-add-rem">
   <div class="modal">
     <button class="xbtn" onclick="closeM('add-rem')">✕</button>
@@ -547,35 +583,237 @@ textarea.fi{resize:vertical;min-height:72px}
 </div>
 
 <script>
-// ── STATE ──
+// ─── STATE ───
 let problems=[],goals=[],projects=[],skills=[],reminders=[],dayLog=[];
 let dsaStreak={count:0,lastLog:null,logs:{}};
 let skStreak={count:0,lastLog:null,logs:{}};
-let dsaFilter='all',remFilter='all';
+let dsaFilter='all';
 let eDSA=null,eGoal=null,eProj=null,eSkill=null;
 let curStar=0;
 
-// ── PERSIST ──
-const KEYS={problems:'dt_p',goals:'dt_g',projects:'dt_proj',skills:'dt_sk',reminders:'dt_rem',dayLog:'dt_day',dsaStreak:'dt_dsa',skStreak:'dt_sks'};
-function save(){Object.entries(KEYS).forEach(([k,v])=>localStorage.setItem(v,JSON.stringify(eval(k))))}
+// ─── PLANNER DATA (from your PDF) ───
+// Today = Apr 18 2026. "Capacity to Ship" starts Apr 19 (tomorrow).
+// Problems before today (Day 1–10 = Apr 8–17) are assigned those dates.
+// Day 11 = Apr 18 (today). Starting from "Capacity to Ship" = Apr 19.
+const PLANNER_PROBLEMS = (function(){
+  // helper: add days to a base date string
+  function addDays(base, n){
+    const d = new Date(base + 'T00:00:00');
+    d.setDate(d.getDate() + n);
+    return d.toISOString().slice(0,10);
+  }
+  // Reference: "Capacity to Ship in D Days" = Day 3 in planner = Apr 10 originally
+  // User says: start "Capacity to Ship" from TOMORROW = Apr 19, 2026
+  // So we shift: original Day 3 date was Apr 10. New Day 3 date = Apr 19.
+  // Shift = Apr 19 - Apr 10 = +9 days. Apply to ALL problems.
+  const SHIFT = 9;
+  const BASE = '2026-04-08'; // original Day 1 date
+
+  function d(day){ return addDays(BASE, (day-1) + SHIFT); }
+
+  // LATER problems (no date — skip list)
+  const LATER = [
+    {name:'Kth element of two sorted arrays',topic:'Binary Search'},
+    {name:'Median of two sorted arrays',topic:'Binary Search'},
+    {name:'Minimize max distance gas stations',topic:'Binary Search'},
+    {name:'Flatten a linked list',topic:'Linked List'},
+    {name:'LRU cache implementation',topic:'Linked List'},
+    {name:'N-queens problem',topic:'Backtracking'},
+    {name:'Sudoku solver',topic:'Backtracking'},
+    {name:'Sum of subarray minimums',topic:'Stack'},
+    {name:'Sliding window maximum',topic:'Queue'},
+    {name:'Count subarrays with XOR = k',topic:'Hashing'},
+    {name:'Minimum window substring',topic:'Sliding Window'},
+    {name:'Candy distribution',topic:'Greedy'},
+    {name:'Construct tree from traversals',topic:'Trees'},
+  ];
+
+  const list = [
+    // ─ Binary Search ─
+    {name:'Min days to make M bouquets',topic:'Binary Search',diff:'Medium',day:1},
+    {name:'Find the smallest divisor',topic:'Binary Search',diff:'Medium',day:2},
+    {name:'Capacity to ship in D days',topic:'Binary Search',diff:'Medium',day:3},
+    {name:'Kth missing positive number',topic:'Binary Search',diff:'Easy',day:4},
+    {name:'Aggressive cows',topic:'Binary Search',diff:'Hard',day:5},
+    {name:'Book allocation problem',topic:'Binary Search',diff:'Hard',day:6},
+    {name:'Split array largest sum',topic:'Binary Search',diff:'Hard',day:7},
+    {name:"Painter's partition problem",topic:'Binary Search',diff:'Hard',day:8},
+    // ─ Strings ─
+    {name:'Remove outermost parentheses',topic:'Strings',diff:'Easy',day:9},
+    {name:'Reverse words in a string',topic:'Strings',diff:'Medium',day:10},
+    {name:'Largest odd number in string',topic:'Strings',diff:'Easy',day:11},
+    {name:'Longest common prefix',topic:'Strings',diff:'Easy',day:12},
+    {name:'Isomorphic strings',topic:'Strings',diff:'Easy',day:13},
+    {name:'Check if strings are rotations',topic:'Strings',diff:'Easy',day:14},
+    {name:'Valid anagram',topic:'Strings',diff:'Easy',day:15},
+    {name:'Sort characters by frequency',topic:'Strings',diff:'Medium',day:16},
+    {name:'Longest palindromic substring',topic:'Strings',diff:'Medium',day:17},
+    {name:'Roman to integer',topic:'Strings',diff:'Easy',day:18},
+    {name:'Integer to roman',topic:'Strings',diff:'Medium',day:19},
+    {name:'String to integer atoi',topic:'Strings',diff:'Medium',day:20},
+    {name:'Count & say',topic:'Strings',diff:'Medium',day:21},
+    // ─ Linked List ─
+    {name:'Reverse a linked list',topic:'Linked List',diff:'Easy',day:22},
+    {name:'Middle of linked list',topic:'Linked List',diff:'Easy',day:23},
+    {name:"Detect loop — Floyd's cycle",topic:'Linked List',diff:'Easy',day:24},
+    {name:'Find start of loop',topic:'Linked List',diff:'Medium',day:25},
+    {name:'Remove Nth node from end',topic:'Linked List',diff:'Medium',day:26},
+    {name:'Check palindrome linked list',topic:'Linked List',diff:'Medium',day:27},
+    {name:'Add two numbers as linked list',topic:'Linked List',diff:'Medium',day:28},
+    {name:'Intersection of two lists',topic:'Linked List',diff:'Medium',day:29},
+    {name:'Merge two sorted linked lists',topic:'Linked List',diff:'Easy',day:30},
+    {name:'Sort linked list — merge sort',topic:'Linked List',diff:'Medium',day:31},
+    {name:'Odd-even linked list',topic:'Linked List',diff:'Medium',day:32},
+    {name:'Delete middle node',topic:'Linked List',diff:'Medium',day:33},
+    {name:'Rotate a linked list',topic:'Linked List',diff:'Medium',day:34},
+    // ─ Day 35 Summer (3/day) ─
+    {name:'Reverse nodes in k-groups',topic:'Linked List',diff:'Hard',day:35},
+    {name:'Clone list with random pointer',topic:'Linked List',diff:'Hard',day:35},
+    {name:'Power of x to n',topic:'Recursion',diff:'Medium',day:35},
+    // ─ Day 36 ─
+    {name:'Tower of Hanoi',topic:'Recursion',diff:'Medium',day:36},
+    {name:'Generate all subsets',topic:'Backtracking',diff:'Medium',day:36},
+    {name:'Generate all permutations',topic:'Backtracking',diff:'Medium',day:36},
+    // ─ Day 37 ─
+    {name:'Combination sum I',topic:'Backtracking',diff:'Medium',day:37},
+    {name:'Combination sum II',topic:'Backtracking',diff:'Medium',day:37},
+    {name:'Subset sum I & II',topic:'Backtracking',diff:'Medium',day:37},
+    // ─ Day 38 ─
+    {name:'Letter combinations phone pad',topic:'Backtracking',diff:'Medium',day:38},
+    {name:'Palindrome partitioning',topic:'Backtracking',diff:'Medium',day:38},
+    {name:'Word search in grid',topic:'Backtracking',diff:'Medium',day:38},
+    // ─ Day 39 ─
+    {name:'Implement stack using arrays',topic:'Stack',diff:'Easy',day:39},
+    {name:'Implement queue using stacks',topic:'Queue',diff:'Easy',day:39},
+    {name:'Valid parentheses',topic:'Stack',diff:'Easy',day:39},
+    // ─ Day 40 ─
+    {name:'Implement min stack',topic:'Stack',diff:'Medium',day:40},
+    {name:'Next greater element I',topic:'Stack',diff:'Medium',day:40},
+    {name:'Next greater element II',topic:'Stack',diff:'Medium',day:40},
+    // ─ Day 41 ─
+    {name:'Asteroid collision',topic:'Stack',diff:'Medium',day:41},
+    {name:'Trapping rainwater',topic:'Stack',diff:'Hard',day:41},
+    {name:'Largest rectangle in histogram',topic:'Stack',diff:'Hard',day:41},
+    // ─ Day 42 ─
+    {name:'Two sum',topic:'Hashing',diff:'Easy',day:42},
+    {name:'4 sum problem',topic:'Hashing',diff:'Medium',day:42},
+    {name:'Longest consecutive sequence',topic:'Hashing',diff:'Medium',day:42},
+    // ─ Day 43 ─
+    {name:'Subarray sum equals k',topic:'Hashing',diff:'Medium',day:43},
+    {name:'Longest subarray with 0 sum',topic:'Hashing',diff:'Medium',day:43},
+    {name:'Group anagrams',topic:'Hashing',diff:'Medium',day:43},
+    // ─ Day 44 ─
+    {name:'Top k frequent elements',topic:'Hashing',diff:'Medium',day:44},
+    {name:'Max sum subarray of size k',topic:'Sliding Window',diff:'Easy',day:44},
+    {name:'Fruit into baskets',topic:'Sliding Window',diff:'Medium',day:44},
+    // ─ Day 45 ─
+    {name:'Longest substring no repeat',topic:'Sliding Window',diff:'Medium',day:45},
+    {name:'Longest repeating char replace',topic:'Sliding Window',diff:'Medium',day:45},
+    {name:'Count distinct elements in window',topic:'Sliding Window',diff:'Hard',day:45},
+    // ─ Day 46 ─
+    {name:'Container with most water',topic:'Two Pointers',diff:'Medium',day:46},
+    {name:'3 sum problem',topic:'Two Pointers',diff:'Medium',day:46},
+    {name:'4 sum — two pointer approach',topic:'Two Pointers',diff:'Medium',day:46},
+    // ─ Day 47 ─
+    {name:'Assign cookies',topic:'Greedy',diff:'Easy',day:47},
+    {name:'Fractional knapsack',topic:'Greedy',diff:'Medium',day:47},
+    {name:'Activity selection problem',topic:'Greedy',diff:'Medium',day:47},
+    // ─ Day 48 ─
+    {name:'N meetings in one room',topic:'Greedy',diff:'Easy',day:48},
+    {name:'Jump game I',topic:'Greedy',diff:'Medium',day:48},
+    {name:'Jump game II',topic:'Greedy',diff:'Medium',day:48},
+    // ─ Day 49 ─
+    {name:'Minimum platforms for trains',topic:'Greedy',diff:'Medium',day:49},
+    {name:'Job sequencing problem',topic:'Greedy',diff:'Medium',day:49},
+    {name:'Insert interval',topic:'Greedy',diff:'Medium',day:49},
+    // ─ Day 50 ─
+    {name:'Count set bits',topic:'Bit Manipulation',diff:'Easy',day:50},
+    {name:'Single number I',topic:'Bit Manipulation',diff:'Easy',day:50},
+    {name:'Single number II',topic:'Bit Manipulation',diff:'Medium',day:50},
+    // ─ Day 51 ─
+    {name:'XOR of numbers 1 to n',topic:'Bit Manipulation',diff:'Easy',day:51},
+    {name:'Find the two odd numbers',topic:'Bit Manipulation',diff:'Medium',day:51},
+    {name:'Power set using bits',topic:'Bit Manipulation',diff:'Medium',day:51},
+    // ─ Day 52 ─
+    {name:'Inorder traversal',topic:'Trees',diff:'Easy',day:52},
+    {name:'Preorder & postorder traversal',topic:'Trees',diff:'Easy',day:52},
+    {name:'Level order traversal BFS',topic:'Trees',diff:'Medium',day:52},
+    // ─ Day 53 ─
+    {name:'Height of binary tree',topic:'Trees',diff:'Easy',day:53},
+    {name:'Diameter of binary tree',topic:'Trees',diff:'Medium',day:53},
+    {name:'Check balanced binary tree',topic:'Trees',diff:'Medium',day:53},
+    // ─ Day 54 ─
+    {name:'Same tree check',topic:'Trees',diff:'Easy',day:54},
+    {name:'Invert binary tree',topic:'Trees',diff:'Easy',day:54},
+    {name:'Root to node path',topic:'Trees',diff:'Medium',day:54},
+    // ─ Day 55 ─
+    {name:'Lowest common ancestor BST',topic:'Trees',diff:'Medium',day:55},
+    {name:'BST validation',topic:'Trees',diff:'Medium',day:55},
+    {name:'Right side view of tree',topic:'Trees',diff:'Medium',day:55},
+    // ─ Day 56 ─
+    {name:'Zigzag level order traversal',topic:'Trees',diff:'Medium',day:56},
+    {name:'Maximum path sum in tree',topic:'Trees',diff:'Hard',day:56},
+  ];
+
+  const result = list.map((p,i)=>({
+    id: 1000+i, name:p.name, topic:p.topic, diff:p.diff,
+    platform:'LC', url:'', notes:'', dateAssigned:d(p.day),
+    solved:false, dateSolved:null, fromPlanner:true
+  }));
+
+  // Add LATER problems (no date, special diff)
+  LATER.forEach((p,i)=>{
+    result.push({
+      id:2000+i, name:p.name, topic:p.topic, diff:'Later',
+      platform:'LC', url:'', notes:'Revisit after finishing related topics.',
+      dateAssigned:'', solved:false, dateSolved:null, fromPlanner:true, isLater:true
+    });
+  });
+
+  return result;
+})();
+
+// ─── PERSIST ───
+function save(){
+  localStorage.setItem('dt_p',JSON.stringify(problems));
+  localStorage.setItem('dt_g',JSON.stringify(goals));
+  localStorage.setItem('dt_proj',JSON.stringify(projects));
+  localStorage.setItem('dt_sk',JSON.stringify(skills));
+  localStorage.setItem('dt_rem',JSON.stringify(reminders));
+  localStorage.setItem('dt_day',JSON.stringify(dayLog));
+  localStorage.setItem('dt_dsa',JSON.stringify(dsaStreak));
+  localStorage.setItem('dt_sks',JSON.stringify(skStreak));
+}
 function load(){
   const g=(k,d)=>{try{return JSON.parse(localStorage.getItem(k)||'null')||d}catch{return d}};
-  problems=g(KEYS.problems,[]);goals=g(KEYS.goals,[]);projects=g(KEYS.projects,[]);
-  skills=g(KEYS.skills,[]);reminders=g(KEYS.reminders,[]);dayLog=g(KEYS.dayLog,[]);
-  dsaStreak=g(KEYS.dsaStreak,{count:0,lastLog:null,logs:{}});
-  skStreak=g(KEYS.skStreak,{count:0,lastLog:null,logs:{}});
+  problems=g('dt_p',null);
+  if(!problems||!problems.length) problems=[...PLANNER_PROBLEMS];
+  goals=g('dt_g',[]);projects=g('dt_proj',[]);skills=g('dt_sk',[]);
+  reminders=g('dt_rem',[]);dayLog=g('dt_day',[]);
+  dsaStreak=g('dt_dsa',{count:0,lastLog:null,logs:{}});
+  skStreak=g('dt_sks',{count:0,lastLog:null,logs:{}});
+}
+function resetToPlanner(){
+  if(!confirm('This will reset all DSA problems to your planner data. Your solve history will be cleared. Continue?'))return;
+  problems=[...PLANNER_PROBLEMS.map(p=>({...p,solved:false,dateSolved:null}))];
+  save();renderDSA();updateStats();
 }
 
-// ── HELPERS ──
+// ─── HELPERS ───
 const today=()=>new Date().toISOString().slice(0,10);
+const tomorrow=()=>{const d=new Date();d.setDate(d.getDate()+1);return d.toISOString().slice(0,10)};
 const fmt=d=>{if(!d)return'—';const p=d.split('-');return`${p[2]}/${p[1]}/${p[0].slice(2)}`};
 const fmtLong=d=>{if(!d)return'—';return new Date(d+'T00:00').toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'2-digit'})};
+const fmtHeader=d=>{if(!d)return'';const dt=new Date(d+'T00:00');const t=today(),tm=tomorrow();
+  const labels={[t]:'Today',[tm]:'Tomorrow'};
+  if(labels[d])return labels[d]+' · '+dt.toLocaleDateString('en-IN',{day:'numeric',month:'short'});
+  return dt.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',year:'2-digit'});
+};
 
 const QUOTES=[
   {q:"The expert in anything was once a beginner who refused to give up.",a:"— Helen Hayes"},
   {q:"Your future self is watching you right now through your memories. Make it proud.",a:"— Shannon L. Alder"},
   {q:"Don't wish it were easier. Wish you were better.",a:"— Jim Rohn"},
-  {q:"Success is the sum of small efforts, repeated day in and day out.",a:"— Robert Collier"},
   {q:"Hard work beats talent when talent doesn't work hard.",a:"— Tim Notke"},
   {q:"The secret of getting ahead is getting started.",a:"— Mark Twain"},
   {q:"You don't have to be great to start, but you have to start to be great.",a:"— Zig Ziglar"},
@@ -583,7 +821,7 @@ const QUOTES=[
   {q:"Code is like humor. When you have to explain it, it's bad.",a:"— Cory House"},
 ];
 
-// ── NAV ──
+// ─── NAV ───
 function goTo(s,el){
   document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(x=>x.classList.remove('active'));
@@ -593,13 +831,13 @@ function goTo(s,el){
   if(s==='reminders'){renderRem();renderTodayRem();}
 }
 
-// ── MODALS ──
+// ─── MODALS ───
 function openM(id){document.getElementById('modal-'+id).classList.add('open')}
 function closeM(id){document.getElementById('modal-'+id).classList.remove('open')}
 document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open')}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.overlay.open').forEach(o=>o.classList.remove('open'))});
 
-// ── NOTIF ──
+// ─── NOTIF ───
 function toggleNotif(){document.getElementById('npanel').classList.toggle('open')}
 document.addEventListener('click',e=>{
   const np=document.getElementById('npanel'),nb=document.getElementById('nbtn');
@@ -609,19 +847,24 @@ function updateNotif(){
   const t=today(),due=reminders.filter(r=>!r.done&&r.date===t);
   document.getElementById('ndot').style.display=due.length?'block':'none';
   const nl=document.getElementById('npl');
-  nl.innerHTML=due.length?due.map(r=>`<div class="npi"><div class="npit">${r.txt}</div><div class="npis">${r.time||'Any time'} · ${r.cat}</div></div>`).join(''):
-    '<div class="npe">No reminders due today 🎉</div>';
+  nl.innerHTML=due.length?due.map(r=>`<div class="npi"><div class="npit">${r.txt}</div><div class="npis">${r.time||'Anytime'} · ${r.cat}</div></div>`).join(''):'<div class="npe">No reminders today 🎉</div>';
 }
 
-// ══════ DSA ══════
-function openDSAModal(){eDSA=null;resetDSAForm();document.getElementById('dsa-mt').textContent='Add Problem';document.getElementById('dsa-sb2').textContent='Add Problem';openM('add-dsa');}
+// ════════ DSA ════════
+function openDSAModal(){eDSA=null;resetDSAForm();document.getElementById('dsa-mt').textContent='Add Problem';document.getElementById('dsa-sb2').textContent='Add Problem';document.getElementById('da').value=today();openM('add-dsa');}
 function resetDSAForm(){['dn','dt','du','da','dnotes'].forEach(id=>document.getElementById(id).value='');document.getElementById('dc').checked=false;}
 function saveDSA(){
   const name=document.getElementById('dn').value.trim();if(!name)return;
   const solved=document.getElementById('dc').checked;
   const obj={id:eDSA||Date.now(),name,topic:document.getElementById('dt').value.trim()||'General',diff:document.getElementById('dd').value,platform:document.getElementById('dp').value,url:document.getElementById('du').value.trim(),notes:document.getElementById('dnotes').value.trim(),dateAssigned:document.getElementById('da').value||today(),solved,dateSolved:solved?today():null};
-  if(eDSA){const i=problems.findIndex(x=>x.id===eDSA);if(i>-1){obj.solved=problems[i].solved;obj.dateSolved=problems[i].dateSolved;}problems.splice(i>-1?i:problems.length,i>-1?1:0,obj);}
-  else{problems.push(obj);if(solved){dsaStreak.logs[today()]=(dsaStreak.logs[today()]||0)+1;calcDSAStreak();}}
+  if(eDSA){
+    const i=problems.findIndex(x=>x.id===eDSA);
+    if(i>-1){obj.solved=problems[i].solved;obj.dateSolved=problems[i].dateSolved;}
+    problems.splice(i>-1?i:problems.length,i>-1?1:0,obj);
+  }else{
+    problems.push(obj);
+    if(solved){dsaStreak.logs[today()]=(dsaStreak.logs[today()]||0)+1;calcDSAStreak();}
+  }
   closeM('add-dsa');eDSA=null;renderDSA();updateStats();save();
 }
 function editDSA(id){
@@ -630,31 +873,99 @@ function editDSA(id){
   document.getElementById('dsa-mt').textContent='Edit Problem';document.getElementById('dsa-sb2').textContent='Save Changes';openM('add-dsa');
 }
 function toggleSolve(id){
-  const p=problems.find(x=>x.id===id);if(!p)return;p.solved=!p.solved;p.dateSolved=p.solved?today():null;
-  if(p.solved){dsaStreak.logs[today()]=(dsaStreak.logs[today()]||0)+1;calcDSAStreak();}renderDSA();updateStats();save();
+  const p=problems.find(x=>x.id===id);if(!p)return;
+  p.solved=!p.solved;p.dateSolved=p.solved?today():null;
+  if(p.solved){dsaStreak.logs[today()]=(dsaStreak.logs[today()]||0)+1;calcDSAStreak();}
+  renderDSA();updateStats();save();
 }
 function delDSA(id){if(!confirm('Delete this problem?'))return;problems=problems.filter(x=>x.id!==id);renderDSA();updateStats();save();}
 function fDSA(f,el){dsaFilter=f;document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderDSA();}
 const PM={LC:{l:'LeetCode',c:'plc'},GFG:{l:'GeeksforGeeks',c:'pgf'},CN:{l:'Coding Ninjas',c:'pcn'}};
+
 function renderDSA(){
+  const t=today(),tm=tomorrow();
   let list=[...problems];
-  if(['Easy','Medium','Hard'].includes(dsaFilter))list=list.filter(p=>p.diff===dsaFilter);
-  else if(dsaFilter==='solved')list=list.filter(p=>p.solved);
-  else if(dsaFilter==='unsolved')list=list.filter(p=>!p.solved);
-  list.sort((a,b)=>b.id-a.id);
+
+  // Apply filter
+  if(dsaFilter==='today') list=list.filter(p=>p.dateAssigned===t&&!p.isLater);
+  else if(dsaFilter==='upcoming') list=list.filter(p=>p.dateAssigned>t&&!p.isLater);
+  else if(dsaFilter==='Easy') list=list.filter(p=>p.diff==='Easy');
+  else if(dsaFilter==='Medium') list=list.filter(p=>p.diff==='Medium');
+  else if(dsaFilter==='Hard') list=list.filter(p=>p.diff==='Hard');
+  else if(dsaFilter==='solved') list=list.filter(p=>p.solved);
+  else if(dsaFilter==='unsolved') list=list.filter(p=>!p.solved&&!p.isLater);
+  else if(dsaFilter==='later') list=list.filter(p=>p.isLater);
+
+  // Sort: LATER problems go to bottom, rest sort ascending by dateAssigned
+  list.sort((a,b)=>{
+    if(a.isLater&&b.isLater) return a.name.localeCompare(b.name);
+    if(a.isLater) return 1;
+    if(b.isLater) return -1;
+    // Compare dates ascending — today first, tomorrow second, future after
+    if(!a.dateAssigned&&!b.dateAssigned) return 0;
+    if(!a.dateAssigned) return 1;
+    if(!b.dateAssigned) return -1;
+    return a.dateAssigned.localeCompare(b.dateAssigned);
+  });
+
   const em=document.getElementById('d-empty'),tb=document.getElementById('dtbody');
   if(!list.length){tb.innerHTML='';em.style.display='block';return;}em.style.display='none';
-  tb.innerHTML=list.map(p=>{const pm=PM[p.platform]||{l:p.platform,c:''};return`<tr>
-    <td><div class="chk${p.solved?' on':''}" onclick="toggleSolve(${p.id})">${p.solved?'✓':''}</div></td>
-    <td style="font-weight:500;color:${p.solved?'var(--text3)':'var(--text)'};${p.solved?'text-decoration:line-through;':''}letter-spacing:-.01em">${p.name}${p.notes?`<div style="font-size:.58rem;color:var(--text3);margin-top:1px">${p.notes}</div>`:''}</td>
-    <td style="color:var(--text2);font-size:.71rem">${p.topic}</td>
-    <td><span class="diff ${p.diff.toLowerCase()}">${p.diff}</span></td>
-    <td>${p.url?`<a class="pl ${pm.c}" href="${p.url}" target="_blank" rel="noopener">${pm.l} ↗</a>`:`<span class="pl ${pm.c}" style="cursor:default">${pm.l}</span>`}</td>
-    <td><span class="dc">${fmt(p.dateAssigned)}</span></td>
-    <td><span class="dc">${p.solved&&p.dateSolved?fmt(p.dateSolved):'—'}</span></td>
-    <td style="white-space:nowrap"><button class="redit" onclick="editDSA(${p.id})" title="Edit">✎</button><button class="rdel" onclick="delDSA(${p.id})" title="Del">✕</button></td>
-  </tr>`;}).join('');
+
+  // Group by date and render with date-group headers
+  let rows='',lastDate=null;
+  list.forEach(p=>{
+    const isToday=p.dateAssigned===t;
+    const isTmr=p.dateAssigned===tm;
+    const isLater=!!p.isLater;
+    const dateKey=isLater?'__later__':p.dateAssigned;
+
+    if(dateKey!==lastDate){
+      lastDate=dateKey;
+      let groupLabel='', groupCls='date-group-row';
+      if(isLater){groupLabel='↩ LATER — Revisit After More Practice';}
+      else if(isToday){groupLabel='Today · '+fmtLong(p.dateAssigned);groupCls+=' today-group';}
+      else if(isTmr){groupLabel='Tomorrow · '+fmtLong(p.dateAssigned);groupCls+=' tomorrow-group';}
+      else{groupLabel=fmtHeader(p.dateAssigned);}
+      rows+=`<tr class="${groupCls}"><td colspan="8">${groupLabel}</td></tr>`;
+    }
+
+    const pm=PM[p.platform]||{l:p.platform,c:''};
+    const rowCls=isToday?'today-row':'';
+    const todayTag=isToday?'<span class="today-tag">TODAY</span>':'';
+    const tmrTag=isTmr?'<span class="tomorrow-tag">TOMORROW</span>':'';
+    const diffCls=p.diff.toLowerCase()==='later'?'later':p.diff.toLowerCase();
+
+    rows+=`<tr class="${rowCls}">
+      <td><div class="chk${p.solved?' on':''}" onclick="toggleSolve(${p.id})">${p.solved?'✓':''}</div></td>
+      <td style="font-weight:500;color:${p.solved?'var(--text3)':'var(--text)'};${p.solved?'text-decoration:line-through;':''}letter-spacing:-.01em">
+        ${p.name}${todayTag}${tmrTag}
+        ${p.notes?`<div style="font-size:.58rem;color:var(--text3);margin-top:1px">${p.notes}</div>`:''}
+      </td>
+      <td style="color:var(--text2);font-size:.71rem">${p.topic}</td>
+      <td><span class="diff ${diffCls}">${p.diff}</span></td>
+      <td>${p.url?`<a class="pl ${pm.c}" href="${p.url}" target="_blank" rel="noopener">${pm.l} ↗</a>`:`<span class="pl ${pm.c}" style="cursor:default">${pm.l}</span>`}</td>
+      <td><span class="dc">${p.dateAssigned?fmt(p.dateAssigned):'—'}</span></td>
+      <td><span class="dc">${p.solved&&p.dateSolved?fmt(p.dateSolved):'—'}</span></td>
+      <td style="white-space:nowrap"><button class="redit" onclick="editDSA(${p.id})" title="Edit">✎</button><button class="rdel" onclick="delDSA(${p.id})" title="Del">✕</button></td>
+    </tr>`;
+  });
+  tb.innerHTML=rows;
+
+  // Today banner
+  const todayProblems=problems.filter(p=>p.dateAssigned===t&&!p.isLater);
+  const banner=document.getElementById('today-banner');
+  if(todayProblems.length){
+    banner.style.display='flex';
+    document.getElementById('tb-count').textContent=todayProblems.length;
+    document.getElementById('tb-date').textContent=fmtLong(t);
+    document.getElementById('tb-problems').innerHTML=`
+      <div class="tb-label">Today's Problems — ${fmtLong(t)}</div>
+      ${todayProblems.map(p=>`<div class="tb-problem-row"><span class="diff ${p.diff.toLowerCase()}" style="font-size:.55rem">${p.diff}</span><span class="tb-name">${p.name}</span><span class="tb-topic">${p.topic}</span>${p.solved?'<span style="font-size:.65rem;color:var(--green)">✓ Solved</span>':''}</div>`).join('')}`;
+  } else {
+    banner.style.display='none';
+  }
 }
+
 function calcDSAStreak(){
   let c=0,d=new Date();while(dsaStreak.logs[d.toISOString().slice(0,10)]>0){c++;d.setDate(d.getDate()-1);}
   dsaStreak.count=c;
@@ -663,13 +974,17 @@ function calcDSAStreak(){
 }
 function logDSAStreak(){
   const t=today(),a=document.getElementById('dsa-sa');if(dsaStreak.lastLog===t){a.textContent='Already logged ✓';return;}
-  dsaStreak.logs[t]=(dsaStreak.logs[t]||0)+1;dsaStreak.lastLog=t;calcDSAStreak();document.getElementById('dsa-sl').textContent=fmt(t);a.textContent='Logged ✓';updateStats();save();
+  dsaStreak.logs[t]=(dsaStreak.logs[t]||0)+1;dsaStreak.lastLog=t;calcDSAStreak();
+  document.getElementById('dsa-sl').textContent=fmt(t);a.textContent='Logged ✓';updateStats();save();
 }
 function updateStats(){
   const t=today(),wa=new Date();wa.setDate(wa.getDate()-7);
-  document.getElementById('s-total').textContent=problems.filter(p=>p.solved).length;
+  const solved=problems.filter(p=>p.solved).length;
+  const total=problems.filter(p=>!p.isLater).length;
+  document.getElementById('s-total').textContent=solved;
   document.getElementById('s-today').textContent=problems.filter(p=>p.solved&&p.dateSolved===t).length;
   document.getElementById('s-week').textContent=problems.filter(p=>p.solved&&p.dateSolved&&new Date(p.dateSolved)>=wa).length;
+  document.getElementById('s-remain').textContent=total-solved;
   renderHM('dsa');
 }
 function renderHM(type){
@@ -682,16 +997,13 @@ function renderHM(type){
   }
 }
 
-// ══════ GOALS ══════
+// ════════ GOALS ════════
 function openGoalModal(){eGoal=null;['gt','gts','ga','gd'].forEach(id=>document.getElementById(id).value='');document.getElementById('goal-mt').textContent='Add College Goal';document.getElementById('goal-sb2').textContent='Add Goal';openM('add-goal');}
 function saveGoal(){
   const t=document.getElementById('gt').value.trim();if(!t)return;
   const tasks=document.getElementById('gts').value.split(',').map(s=>s.trim()).filter(Boolean);
-  if(eGoal){
-    const g=goals.find(x=>x.id===eGoal);
-    if(g){g.title=t;g.sem=document.getElementById('gs').value;g.dateAssigned=document.getElementById('ga').value||today();g.deadline=document.getElementById('gd').value;if(tasks.length)g.tasks=tasks.map(x=>({text:x,done:false}));}
-    eGoal=null;
-  }else goals.push({id:Date.now(),title:t,sem:document.getElementById('gs').value,dateAssigned:document.getElementById('ga').value||today(),deadline:document.getElementById('gd').value,tasks:tasks.map(x=>({text:x,done:false}))});
+  if(eGoal){const g=goals.find(x=>x.id===eGoal);if(g){g.title=t;g.sem=document.getElementById('gs').value;g.dateAssigned=document.getElementById('ga').value||today();g.deadline=document.getElementById('gd').value;if(tasks.length)g.tasks=tasks.map(x=>({text:x,done:false}));}eGoal=null;}
+  else goals.push({id:Date.now(),title:t,sem:document.getElementById('gs').value,dateAssigned:document.getElementById('ga').value||today(),deadline:document.getElementById('gd').value,tasks:tasks.map(x=>({text:x,done:false}))});
   closeM('add-goal');renderGoals();save();
 }
 function editGoal(id){
@@ -714,7 +1026,7 @@ function renderGoals(){
   </div>`;}).join('');
 }
 
-// ══════ PROJECTS ══════
+// ════════ PROJECTS ════════
 function openProjModal(){eProj=null;['pn','pd','psk','pg','pl','pda'].forEach(id=>document.getElementById(id).value='');document.getElementById('proj-mt').textContent='Add Project';document.getElementById('proj-sb2').textContent='Add Project';openM('add-project');}
 function saveProject(){
   const n=document.getElementById('pn').value.trim();if(!n)return;
@@ -740,11 +1052,12 @@ function renderProjects(){
     <div class="pname">${p.name}</div><div class="pdesc">${p.desc||'No description.'}</div>
     <div class="sr">${p.stack.map(s=>`<span class="stk">${s}</span>`).join('')}</div>
     ${p.dateAssigned?`<div class="pdate">📅 Started: ${fmt(p.dateAssigned)}</div>`:''}
-    <div class="plinks">${p.github?`<a class="plink" href="${p.github}" target="_blank" rel="noopener">⎇ GitHub ↗</a>`:''} ${p.live?`<a class="plink" href="${p.live}" target="_blank" rel="noopener">◉ Live ↗</a>`:''}</div>
-  </div>`).join('');
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div class="plinks">${p.github?`<a class="plink" href="${p.github}" target="_blank" rel="noopener">⎇ GitHub ↗</a>`:''} ${p.live?`<a class="plink" href="${p.live}" target="_blank" rel="noopener">◉ Live ↗</a>`:''}</div>
+    </div></div>`).join('');
 }
 
-// ══════ SKILLS ══════
+// ════════ SKILLS ════════
 function openSkillModal(){eSkill=null;['skn','skdesc'].forEach(id=>document.getElementById(id).value='');document.getElementById('skc').value='1';document.getElementById('step-fields').innerHTML='';addStepField();document.getElementById('skill-mt').textContent='Add Skill Track';document.getElementById('skill-sb2').textContent='Add Track';openM('add-skill');}
 function addStepField(lbl='',date=''){
   const w=document.getElementById('step-fields'),r=document.createElement('div');r.className='step-row';
@@ -765,18 +1078,10 @@ function editSkill(id){
   document.getElementById('step-fields').innerHTML='';s.steps.forEach(st=>addStepField(st.label||st,st.date||''));
   document.getElementById('skill-mt').textContent='Edit Skill Track';document.getElementById('skill-sb2').textContent='Save Changes';openM('add-skill');
 }
-function advStep(id){
-  const s=skills.find(x=>x.id===id);if(s&&s.current<s.steps.length){s.current++;skStreak.logs[today()]=(skStreak.logs[today()]||0)+1;calcSkStreak();}renderSkills();renderHM('skill');save();
-}
+function advStep(id){const s=skills.find(x=>x.id===id);if(s&&s.current<s.steps.length){s.current++;skStreak.logs[today()]=(skStreak.logs[today()]||0)+1;calcSkStreak();}renderSkills();renderHM('skill');save();}
 function delSkill(id){if(!confirm('Delete?'))return;skills=skills.filter(x=>x.id!==id);renderSkills();save();}
-function calcSkStreak(){
-  let c=0,d=new Date();while(skStreak.logs[d.toISOString().slice(0,10)]>0){c++;d.setDate(d.getDate()-1);}
-  skStreak.count=c;const e=document.getElementById('sk-sn');if(e)e.textContent=c;document.getElementById('n-sk').textContent=c;
-}
-function logSkillStreak(){
-  const t=today(),a=document.getElementById('sk-sa');if(skStreak.lastLog===t){a.textContent='Already logged ✓';return;}
-  skStreak.logs[t]=(skStreak.logs[t]||0)+1;skStreak.lastLog=t;calcSkStreak();document.getElementById('sk-sl').textContent=fmt(t);a.textContent='Logged ✓';renderHM('skill');save();
-}
+function calcSkStreak(){let c=0,d=new Date();while(skStreak.logs[d.toISOString().slice(0,10)]>0){c++;d.setDate(d.getDate()-1);}skStreak.count=c;const e=document.getElementById('sk-sn');if(e)e.textContent=c;document.getElementById('n-sk').textContent=c;}
+function logSkillStreak(){const t=today(),a=document.getElementById('sk-sa');if(skStreak.lastLog===t){a.textContent='Already logged ✓';return;}skStreak.logs[t]=(skStreak.logs[t]||0)+1;skStreak.lastLog=t;calcSkStreak();document.getElementById('sk-sl').textContent=fmt(t);a.textContent='Logged ✓';renderHM('skill');save();}
 function renderSkills(){
   const g=document.getElementById('skills-grid');
   if(!skills.length){g.innerHTML='<div class="empty"><div class="ei">📡</div>No skill tracks yet!</div>';return;}
@@ -791,18 +1096,19 @@ function renderSkills(){
     </div>`;}).join('')}</div></div>`;}).join('');
 }
 
-// ══════ DAY ══════
+// ════════ DAY ════════
+let curStar2=0;
 function initDay(){
   document.getElementById('daytl').textContent=fmtLong(today());
   const e=dayLog.find(d=>d.date===today());
-  curStar=e?e.stars:0;document.getElementById('dg').value=e?e.good||'':'';document.getElementById('dl').value=e?e.lack||'':'';
+  curStar2=e?e.stars:0;document.getElementById('dg').value=e?e.good||'':'';document.getElementById('dl').value=e?e.lack||'':'';
   renderStars();renderDayHist();
 }
-function setStar(v){curStar=v;renderStars();}
-function renderStars(){document.querySelectorAll('.star').forEach(b=>{b.classList.toggle('lit',parseInt(b.dataset.v)<=curStar);});}
+function setStar(v){curStar2=v;renderStars();}
+function renderStars(){document.querySelectorAll('.star').forEach(b=>{b.classList.toggle('lit',parseInt(b.dataset.v)<=curStar2);});}
 function saveDay(){
-  if(!curStar){alert('Please select a rating first!');return;}
-  const entry={date:today(),stars:curStar,good:document.getElementById('dg').value.trim(),lack:document.getElementById('dl').value.trim()};
+  if(!curStar2){alert('Please select a rating!');return;}
+  const entry={date:today(),stars:curStar2,good:document.getElementById('dg').value.trim(),lack:document.getElementById('dl').value.trim()};
   const i=dayLog.findIndex(d=>d.date===today());if(i>-1)dayLog[i]=entry;else dayLog.unshift(entry);
   const m=document.getElementById('day-msg');m.textContent='Saved ✓';setTimeout(()=>m.textContent='',2200);renderDayHist();save();
 }
@@ -811,12 +1117,10 @@ function renderDayHist(){
   if(!dayLog.length){h.innerHTML='';em.style.display='block';return;}em.style.display='none';
   const avg=(dayLog.reduce((a,d)=>a+d.stars,0)/dayLog.length).toFixed(1);
   document.getElementById('day-avg').textContent=`Avg ${avg} ⭐ · ${dayLog.length} entries`;
-  h.innerHTML=dayLog.slice(0,20).map(d=>`<div class="dhi">
-    <div class="dhd">${fmt(d.date)}</div><div class="dhs">${'⭐'.repeat(d.stars)}</div>
-    <div class="dhn">${d.good||'—'}</div>${d.lack?`<div class="dhl2">↓ ${d.lack}</div>`:''}</div>`).join('');
+  h.innerHTML=dayLog.slice(0,20).map(d=>`<div class="dhi"><div class="dhd">${fmt(d.date)}</div><div class="dhs">${'⭐'.repeat(d.stars)}</div><div class="dhn">${d.good||'—'}</div>${d.lack?`<div class="dhl2">↓ ${d.lack}</div>`:''}</div>`).join('');
 }
 
-// ══════ REMINDERS ══════
+// ════════ REMINDERS ════════
 let remFilt='all';
 function addReminder(){
   const txt=document.getElementById('rem-txt').value.trim();if(!txt)return;
@@ -856,32 +1160,16 @@ function renderRem(){
   el.innerHTML=list.map(r=>remHTML(r,false)).join('');
 }
 
-// ══════ BROWSER NOTIFICATION ══════
-function requestNotifPermission(){
-  if('Notification' in window&&Notification.permission==='default')Notification.requestPermission();
-}
-function checkBrowserNotifs(){
-  if(!('Notification' in window)||Notification.permission!=='granted')return;
-  const t=today();
-  reminders.filter(r=>!r.done&&r.date===t&&r.time).forEach(r=>{
-    const now=new Date(),[hh,mm]=r.time.split(':').map(Number);
-    const rem=new Date();rem.setHours(hh,mm,0,0);
-    const diff=rem-now;if(diff>0&&diff<60000)setTimeout(()=>new Notification('DevTrack Reminder',{body:r.txt,icon:''}),diff);
-  });
-}
-
-// ══════ INIT ══════
+// ════════ INIT ════════
 load();
 calcDSAStreak();calcSkStreak();
-renderDSA();updateStats();renderGoals();renderProjects();renderSkills();
+renderDSA();updateStats();
+renderGoals();renderProjects();renderSkills();
 renderHM('dsa');renderHM('skill');
 updateNotif();
 if(dsaStreak.lastLog)document.getElementById('dsa-sl').textContent=fmt(dsaStreak.lastLog);
 if(skStreak.lastLog)document.getElementById('sk-sl').textContent=fmt(skStreak.lastLog);
-// Pre-fill reminder date
-document.getElementById('modal-add-rem').addEventListener('transitionend',()=>{if(!document.getElementById('rem-date').value)document.getElementById('rem-date').value=today();});
 document.getElementById('modal-add-rem').addEventListener('click',()=>{if(!document.getElementById('rem-date').value)document.getElementById('rem-date').value=today();},{once:false});
-requestNotifPermission();setInterval(checkBrowserNotifs,30000);
 </script>
 </body>
 </html>
