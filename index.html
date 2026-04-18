@@ -592,24 +592,28 @@ let eDSA=null,eGoal=null,eProj=null,eSkill=null;
 let curStar=0;
 
 // ─── PLANNER DATA (from your PDF) ───
-// Today = Apr 18 2026. "Capacity to Ship" starts Apr 19 (tomorrow).
-// Problems before today (Day 1–10 = Apr 8–17) are assigned those dates.
-// Day 11 = Apr 18 (today). Starting from "Capacity to Ship" = Apr 19.
+// DYNAMIC anchor: "Capacity to Ship in D Days" = Day 3 = TODAY at runtime.
+// So Day 1 = 2 days ago, Day 2 = yesterday, Day 3 = today, Day 4 = tomorrow, etc.
+// This way the schedule always stays live regardless of when Vercel serves the page.
 const PLANNER_PROBLEMS = (function(){
-  // helper: add days to a base date string
+  // helper: add N days to a Date object, return YYYY-MM-DD string
   function addDays(base, n){
-    const d = new Date(base + 'T00:00:00');
+    const d = new Date(base);
     d.setDate(d.getDate() + n);
-    return d.toISOString().slice(0,10);
+    // Use local date parts to avoid UTC timezone shift
+    const yyyy = d.getFullYear();
+    const mm   = String(d.getMonth()+1).padStart(2,'0');
+    const dd   = String(d.getDate()).padStart(2,'0');
+    return `${yyyy}-${mm}-${dd}`;
   }
-  // Reference: "Capacity to Ship in D Days" = Day 3 in planner = Apr 10 originally
-  // User says: start "Capacity to Ship" from TOMORROW = Apr 19, 2026
-  // So we shift: original Day 3 date was Apr 10. New Day 3 date = Apr 19.
-  // Shift = Apr 19 - Apr 10 = +9 days. Apply to ALL problems.
-  const SHIFT = 9;
-  const BASE = '2026-04-08'; // original Day 1 date
 
-  function d(day){ return addDays(BASE, (day-1) + SHIFT); }
+  // Anchor: Day 3 of the planner = TODAY (the day the page is viewed).
+  // "Capacity to Ship" is Day 3. User said start it from today.
+  // So: dayDate(n) = today + (n - 3) days
+  const now = new Date();
+  const todayLocal = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+
+  function d(day){ return addDays(todayLocal + 'T00:00:00', day - 3); }
 
   // LATER problems (no date — skip list)
   const LATER = [
@@ -786,17 +790,23 @@ function save(){
 }
 function load(){
   const g=(k,d)=>{try{return JSON.parse(localStorage.getItem(k)||'null')||d}catch{return d}};
-  problems=g('dt_p',null);
-  if(!problems||!problems.length) problems=[...PLANNER_PROBLEMS];
+  // Always merge planner problems: preserve solved/dateSolved from localStorage,
+  // but recalculate dateAssigned fresh from PLANNER_PROBLEMS (which anchors to today at runtime).
+  const saved = g('dt_p', []);
+  const savedMap = {};
+  saved.forEach(p=>{ savedMap[p.id]=p; });
+  // Merge: use fresh dates from PLANNER_PROBLEMS, keep solve status from localStorage
+  problems = PLANNER_PROBLEMS.map(p => {
+    const s = savedMap[p.id];
+    return s ? {...p, solved:s.solved, dateSolved:s.dateSolved, url:s.url||p.url, notes:s.notes||p.notes} : {...p};
+  });
+  // Also keep any user-added problems (id >= 10000, not in PLANNER_PROBLEMS)
+  const plannerIds = new Set(PLANNER_PROBLEMS.map(p=>p.id));
+  saved.filter(p=>!plannerIds.has(p.id)).forEach(p=>problems.push(p));
   goals=g('dt_g',[]);projects=g('dt_proj',[]);skills=g('dt_sk',[]);
   reminders=g('dt_rem',[]);dayLog=g('dt_day',[]);
   dsaStreak=g('dt_dsa',{count:0,lastLog:null,logs:{}});
   skStreak=g('dt_sks',{count:0,lastLog:null,logs:{}});
-}
-function resetToPlanner(){
-  if(!confirm('This will reset all DSA problems to your planner data. Your solve history will be cleared. Continue?'))return;
-  problems=[...PLANNER_PROBLEMS.map(p=>({...p,solved:false,dateSolved:null}))];
-  save();renderDSA();updateStats();
 }
 
 // ─── HELPERS ───
